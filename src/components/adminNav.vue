@@ -4,12 +4,9 @@
 		<div class="nav-toggle" @click="toggleNav()"><span class="el-icon-menu"></span></div>
 		<ul>
 			<li>首页</li>
-			<li>page01</li>
-			<li>page02</li>
-			<li>page03</li>
-			<li>page04</li>
-			<li>page05</li>
-			<li>page06</li>
+			<li v-for="auth in authorityList">
+				{{auth}}
+			</li>
 		</ul>
 	</div>
 </template>
@@ -19,8 +16,13 @@
 		name :"adminNav",
 		data(){
 			return {
-				navshow:true
+				navshow:true,
+				authorityList: []
 			}
+		},
+		created:function(){
+			//应从后台获取
+			this.authorityList  = ["page01","page02","page03","page04","page05"];
 		},
 		methods:{
 			toggleNav:function(){
@@ -31,7 +33,7 @@
 		}
 	}
 </script>
-
+	
 <style>
     .nav .logo{
     	color: #fff;

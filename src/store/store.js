@@ -4,7 +4,8 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
 	state:{
-		siteId:"vadmin"
+		siteId:"vadmin",
+		authorityList:[]
 	},
 	mutations:{
 

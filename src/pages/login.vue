@@ -26,7 +26,6 @@
 				var self = this;
 				var account = this.account;
 				var password = this.password;
-				//密码加密
 
 				this.$axios.post('/login',{
 					account:account,
@@ -35,6 +34,7 @@
 					console.log(response.data);
 					if(response.data.code == 0){
 						self.$router.push("/home");
+						self.$store.state.authorityList = isArray(response.data.authority) ? response.data.authority : (response.data.authority).split(",");
 					}
 				}).catch(function(error){
 					console.log(error);
@@ -44,7 +44,7 @@
 	}
 </script>
 <style>
-	.login-bg{width: 100%;height: 100%;overflow: hidden;background: url(/static/images/bg.jpg) no-repeat;background-size: 100% 100%;}
+	/*.login-bg{width: 100%;height: 100%;overflow: hidden;background: url(/static/images/bg.jpg) no-repeat;background-size: 100% 100%;}*/
 	.login{
 		width: 100%;height:350px;background: rgba(96, 160, 158, 0.5);position: absolute;top: 30%;
 	}
