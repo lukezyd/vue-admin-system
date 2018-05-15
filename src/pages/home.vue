@@ -10,7 +10,7 @@
 	</div>
 </template>
 <script>
-	import adminNav from "../components/adminNav" 
+	import adminNav from "../components/adminNav"
 	export default {
 		name :"home",
 		data(){
@@ -23,6 +23,9 @@
 		},
 		created : function(){
 			this.navLocaltion = localStorage.getItem(this.$store.state.siteId + "_nav") || "nav-left"
+		},
+		components:{
+			adminNav
 		},
 		methods : {
 			changenav : function(){
@@ -84,6 +87,7 @@
 	    color: #ddd;
 	    position: absolute;
 	    cursor:pointer; 
+	    background-color: #ddd;
 	}
 	.nav-setting i{
 		font-size: 20px;
