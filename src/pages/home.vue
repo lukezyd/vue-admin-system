@@ -5,7 +5,7 @@
 			<!-- <div class="nav-setting" @click="changenav()"><i class="el-icon-setting"></i></div> -->
 		</div>
 		<div class="home-main">
-
+			<v-select :lists="lists"></v-select>
 		</div>
 	</div>
 </template>
@@ -15,7 +15,14 @@
 		name :"home",
 		data(){
 			return {
-				navLocaltion:''
+				navLocaltion:'',
+				lists:[
+					{id:1,text:"aaaaaaa"},
+					{id:2,text:"bbbbbbb"},
+					{id:3,text:"cccccccc"},
+					{id:4,text:"ddddddddd"},
+					{id:5,text:"eeeeeeeeee"}
+				]
 			}
 		},
 		components:{
