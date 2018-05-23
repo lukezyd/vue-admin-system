@@ -6,11 +6,13 @@ import router from './router'
 import Vue from 'vue'
 import store from './store/store'
 import select from './packages/select'
+import valert from './packages/msgAlert'
 
 Vue.config.productionTip = true;
 Vue.prototype.$axios = axios;
 // Vue.use(ElementUI);
 Vue.use(select);
+Vue.use(valert);
 
 const app = new Vue({
   router,

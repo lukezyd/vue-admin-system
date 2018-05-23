@@ -5,8 +5,18 @@
 			<!-- <div class="nav-setting" @click="changenav()"><i class="el-icon-setting"></i></div> -->
 		</div>
 		<div class="home-main">
-			<v-select :lists="lists"></v-select>
+			<v-select :lists="lists" @selected="selected"></v-select>
+			<input type="text" class="hide" v-model="selectId">
 		</div>
+		<!-- <v-alert :showAlert="showAlert">
+			<div slot="alertMain">
+				<ul>
+					<li>124124</li>
+					<li>124124</li>
+					<li>124124</li>
+				</ul>
+			</div>
+		</v-alert> -->
 	</div>
 </template>
 <script>
@@ -22,7 +32,9 @@
 					{id:3,text:"cccccccc"},
 					{id:4,text:"ddddddddd"},
 					{id:5,text:"eeeeeeeeee"}
-				]
+				],
+				showAlert:true,
+				selectId:''
 			}
 		},
 		components:{
@@ -50,6 +62,10 @@
 				}else{
 					this.navLocaltion = "nav-icon nav-left";
 				}
+			},
+			selected: function(id){
+				this.selectId = id;
+				console.log(this.selectId)
 			}
 		}
 	}
