@@ -1,9 +1,9 @@
 <template>
 	<div class="nav">
-		<div class="logo"><span>LOGO BOX</span></div>
+		<!-- <div class="logo"><span>LOGO BOX</span></div> -->
 		<div class="nav-toggle" @click="toggleNav()"><span class="el-icon-menu"></span></div>
 		<ul>
-			<li>首页</li>
+			<li class="active">首页</li>
 			<li v-for="auth in authorityList">
 				{{auth}}
 			</li>
@@ -22,7 +22,7 @@
 		},
 		created:function(){
 			//应从后台获取
-			this.authorityList  = ["page01","page02","page03","page04","page05"];
+			// this.authorityList  = ["page01","page02","page03","page04","page05"];
 		},
 		methods:{
 			toggleNav:function(){
@@ -61,6 +61,10 @@
 		line-height: 50px;
 		color:#fff;
 		cursor: pointer;
+	}
+	.nav li.active{
+		background: #d27f7f;
+		color:#fff;
 	}
 	.nav li:hover{
 		background: #d27f7f;

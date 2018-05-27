@@ -5,7 +5,9 @@
 				<div class="login-item"><span class="login-logo">vue admin system</span></div>
 				<div class="login-item"><input v-model="account" placeholder="用户名" type="text" class="account"></div>
 				<div class="login-item"><input v-model="password" placeholder="密码" type="password"></div>
-				<div class="login-item remember-box"><el-checkbox v-model="rememberMe">记住密码</el-checkbox></div>
+				<div class="login-item remember-box">
+					<!-- <el-checkbox v-model="rememberMe">记住密码</el-checkbox> -->
+				</div>
 				<div class="login-item"><input @click="login()" class="login-btn" type="button" value="登录"></div>
 			</div>
 		</div>	
@@ -33,7 +35,7 @@
 				}).then(function(response){
 					console.log(response.data);
 					if(response.data.code == 0){
-						self.$router.push("/home");
+						self.$router.push("/index");
 						self.$store.state.authorityList = isArray(response.data.authority) ? response.data.authority : (response.data.authority).split(",");
 					}
 				}).catch(function(error){
@@ -44,9 +46,11 @@
 	}
 </script>
 <style>
-	/*.login-bg{width: 100%;height: 100%;overflow: hidden;background: url(/static/images/bg.jpg) no-repeat;background-size: 100% 100%;}*/
+	.login-bg{width: 100%;height: 100%;overflow: hidden;background: url(/static/images/login.jpg) no-repeat;background-size: 100% 100%;}
+	
 	.login{
-		width: 100%;height:350px;background: rgba(96, 160, 158, 0.5);position: absolute;top: 30%;
+		padding: 20px 0;
+		width: 100%;height:390px;background:rgba(80, 119, 125, 0.5);position: absolute;top: 30%;
 	}
 	.login-content{
 		padding: 15px;

@@ -7,6 +7,8 @@ import Vue from 'vue'
 import store from './store/store'
 import select from './packages/select'
 import valert from './packages/msgAlert'
+import "font-awesome/css/font-awesome.css"
+
 
 Vue.config.productionTip = true;
 Vue.prototype.$axios = axios;
