@@ -57,7 +57,7 @@ export default {
   height: 100%;
 }
 .nav{
-    background: #616967;
+    background: #2a3542;
     height: 100%;
     position: relative;
   }

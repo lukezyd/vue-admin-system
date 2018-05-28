@@ -19,6 +19,37 @@
 				<div id="chart02" style="width:100%;height:48%;"></div>
 				<div id="chart03" style="width:100%;height:48%;"></div>
 			</div>
+			<div class="new-user">
+				<div class="personal clearfix">
+					<span class="personal-logo fl"><img :src="personal.logo" alt=""></span>
+					<div>
+						<p class="personal-name">{{personal.name}}</p>
+						<p>{{personal.desc}}</p>
+					</div>
+				</div>
+				<ul>
+					<li class="clearfix"  v-for="item in property">
+						<span class="fl"><i class="fa" :class="item.icon"></i></span>
+						<span>{{item.desc}}</span>
+						<span class="fr">{{item.num}}</span>
+					</li>
+				</ul>
+			</div>
+
+			<div class="tag-rank">
+				<div class="rank-top clearfix">
+					<h4 class="fl">排行榜</h4>
+					<v-select class="fr" :lists="lists" ></v-select>
+				</div>
+				<ul>
+					<li v-for="(item,i) in tagList">
+						<span>{{i + 1}}</span>
+						<span>{{item.text}}</span>
+						<span>{{item.num}}</span>
+						<span>{{item.chart}}</span>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </template>
@@ -33,7 +64,31 @@
 					{icon:"fa-line-chart fa-2x",num:500,desc:"累计时长"},
 					{icon:"fa-bar-chart fa-2x",num:600,desc:"总计"},
 				],
-				colorList:["#e49393","#88dcef","#84daab","#ddb3de"]
+				colorList:["#e49393","#88dcef","#84daab","#ddb3de"],
+				personal:{
+					logo:"/static/images/p_logo.jpg",
+					name:"Cat dan",
+					desc:"一只两个月大的猫。"
+				},
+				property:[
+					{icon:"fa-cubes",desc:"吃猫粮",num:12},
+					{icon:"fa-heartbeat",desc:"配玩耍",num:22},
+					{icon:"fa-hourglass-3",desc:"睡觉",num:15}
+				],
+				lists:[
+					{id:1,text:"aaaaaaa"},
+					{id:2,text:"bbbbbbb"},
+					{id:3,text:"cccccccc"},
+					{id:4,text:"ddddddddd"},
+					{id:5,text:"eeeeeeeeee"}
+				],
+				tagList:[
+					{text:"苹果",num:23,chart:""},
+					{text:"苹果",num:23,chart:""},
+					{text:"苹果",num:23,chart:""},
+					{text:"苹果",num:23,chart:""},
+					{text:"苹果",num:23,chart:""}
+				]
 			}
 		},
 		mounted:function(){
@@ -52,7 +107,8 @@
 		            // legend: {
 		            //     data:['销量']
 		            // },
-		            color:["#6ccce2"],
+		            color:["#bfc2cd"],
+		            // color:["#6ccce2","#bfc2cd"],
 		            xAxis: {
 		                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子","袜子","袜子","衬衫","羊毛衫","羊毛衫"]
 		            },
@@ -144,12 +200,12 @@
 		height: 100%;
 		width: 100%;
 		position: relative;
-		background: #f1f1f1;
+		background: #f1f2f7;
 	}
 	.home-main{
 		position: relative;
 		overflow: hidden;
-		background: #f1f1f1;
+		background: #f1f2f7;
 		height: 100%;
 		padding: 20px;
 	}
@@ -176,9 +232,9 @@
 		width: 40%;
 	}
 	.text-box{
-		text-align: left;
+		text-align: center;
 		overflow: hidden;
-		padding: 10px 10%;
+		padding: 10px 0;
 		border-left:none;
 	}
 	.sun-num{
@@ -191,7 +247,7 @@
 		color:#a2a2a2;
 	}
 	.main-chart{
-		margin-top: 25px;
+		margin: 25px 0;
 		width: 65%;
 		float: left;
 		height: 450px;
@@ -217,5 +273,57 @@
 		background-color: #a9d96c;
 		color:#fff;
 		border-radius: 5px;
+	}
+	.new-user{
+		clear: both;
+		width: 33%;
+		background: #fff;
+		float: left;
+	}
+	.personal{
+		padding: 15px;
+	}
+	.personal div{
+		overflow: hidden;
+	}
+	.personal p{
+		text-align: left;
+		padding-left: 20px;
+		margin-top: 12px;
+	}
+	.personal-name{
+		color:#4ac7ef;
+	}
+	.personal-logo img{
+		width: 120px;
+		height: 108px;
+	}
+	.new-user li{
+		list-style: none;
+		border-top: 1px solid #eee;
+		line-height: 45px;
+		text-align: center;
+		padding: 0 20px;
+	}
+	.tag-rank{
+		width: 65%;
+		margin-left: 1%;
+		height: 280px;
+		background: #fff;
+		float: right;
+	}
+	.rank-top{
+		padding:15px;
+	}
+	.tag-rank li{
+		list-style: none;
+		line-height: 42px;
+		padding:0 15px;
+		display: table;
+		width: 100%;
+		border-top:1px solid #eee;
+	}
+	.tag-rank li span{
+		display: table-cell;
 	}
 </style>

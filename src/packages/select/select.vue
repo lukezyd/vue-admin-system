@@ -49,11 +49,12 @@
 	.hide{display: none;}
 	.v-select{
 		position: relative;
-	    width: 200px;
+	    width: 100px;
+	    height: 35px;
 	}
 	.choose{
 		width: 100%;
-	    height: 100%;
+	    height: 35px;
 	    border: 1px solid #ddd;
 	    border-radius: 3px;
 	    padding: 5px 7px;
@@ -63,10 +64,11 @@
 		position: absolute;
 		width: 100%;
 		border: 1px solid #ddd;
-		top:26px;
+		top:35px;
 	}
 
 	.list-box li{
+		list-style: none;
 		line-height: 30px;
 	    font-size: 14px;
 	    padding: 0 6px;
