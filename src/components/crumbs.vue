@@ -1,5 +1,5 @@
 <template>
-	<div class="crumbs">
+	<div class="crumbs" v-show="showCrumbs">
 		<div class="crumbs-box">
 			<ul>
 				<li v-for="item in cList"><span class="fa fa-home"></span><span class="crumbs-text"> {{item}}</span></li>
@@ -14,6 +14,9 @@
 		props:{
 			cList:{
 				type:Array
+			},
+			showCrumbs:{
+				type:Boolean
 			}
 		},
 		data (){

@@ -1,11 +1,9 @@
 <template>
   <div id="app">
-     <div class="nav" v-bind:class="navLocaltion">
-        <adminNav @navToggle="navToggles"></adminNav>
-        <!-- <div class="nav-setting" @click="changenav()"><i class="el-icon-setting"></i></div> -->
-      </div>
+      <admin-header></admin-header>
+      <admin-nav @navToggle="navToggles"></admin-nav>
       <div class="main-page">
-        <crumbs :cList="crumbsList"></crumbs>
+        <crumbs :showCrumbs="showCrumbs" :cList="crumbsList"></crumbs>
         <router-view></router-view>
       </div>
   </div>
@@ -13,17 +11,20 @@
 
 <script>
 import adminNav from "../components/adminNav"
+import adminHeader from "../components/adminHeader"
 import crumbs from "../components/crumbs"
 export default {
   name: 'mainPage',
   components:{
     adminNav,
-    crumbs
+    crumbs,
+    adminHeader
   },
   data (){
     return {
       navLocaltion:'',
-      crumbsList:['首页']
+      crumbsList:['首页'],
+      showCrumbs:false
     }
   },
   created : function(){
@@ -54,43 +55,6 @@ export default {
 <style>
 .main-page{
   overflow: auto;
-  height: 100%;
+  height: calc(100% - 60px);
 }
-.nav{
-    background: #2a3542;
-    height: 100%;
-    position: relative;
-  }
-  .nav-left{
-    float: left;
-    width: 210px;
-    max-width: 350px;
-    height: 100%;
-  }
-  .nav-top{
-    height: 60px;
-    width: 100%;
-  }
-  .nav-icon{
-    margin-left: -15%;
-  }
-  .nav-icon .nav-toggle{
-    margin-right: 14px;
-  }
-  .nav-setting{
-    display: inline-block;
-    width: 100%;
-    height: 30px;
-    line-height: 30px;
-      background: #848484;
-      right: 0;
-      bottom: 0;
-      color: #ddd;
-      position: absolute;
-      cursor:pointer; 
-      background-color: #ddd;
-  }
-  .nav-setting i{
-    font-size: 20px;
-  }
 </style>
