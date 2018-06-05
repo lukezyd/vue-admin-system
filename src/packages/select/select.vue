@@ -1,12 +1,12 @@
 <template>
 	<div class="v-select">
 		<div class="select-box">
-			<input type="text" class="choose selectName" v-model="selectText" readonly="readonly" @click="onClick" placeholder="请选择">
-			<span class="select-icon"> <i class="fa" :class="{'fa-caret-down':isDown,'fa-caret-up':isUp}"></i></span>
-			<span class="clear-data"></span>
+			<input type="text" class="choose selectName" :style="selectStyle.vipt" v-model="selectText" readonly="readonly" @click="onClick" placeholder="请选择">
+			<span class="select-icon" :style="selectStyle.vicon"> <i class="fa" :class="{'fa-caret-down':isDown,'fa-caret-up':isUp}"></i></span>
+			<span class="clear-data" v-show="showClear" @click="onClear">x</span>
 			<input type="text" class="hide selectId" v-model="selectId" readonly="readonly" >
 			<transition name="slide">
-				<div class="list-box" v-if="showList" >
+				<div class="list-box" v-if="showList" :style="selectStyle.vlist">
 					<div class="wrapper" :class="{expendWidth:expendWidth}">
 						<ul>
 							<li v-for="item in lists" :key="item.id" @click="onSelect(item.id,item.text)">{{ item.text }}</li>
@@ -19,6 +19,11 @@
 </template>
 
 <script>
+	/* selectStyle : 自定义样式
+ 	 * selectStyle.vipt : 自定义输入框的样式
+	 * selectStyle.vicon : 自定义icon的样式
+	 * selectStyle.vlist : 自定义下拉框的样式
+	 */
 	export default {
 		name :"vselect",
 		props:{
@@ -37,11 +42,7 @@
 				isDown:true,
 				isUp:false,
 				expendWidth:false,
-				toggleAnimation:{
-					'-webkit-animation':' showBox 2s ease',
-					'-o-animation': 'showBox 2s ease',
-					'animation': 'showBox 2s ease'
-				}
+				showClear:false
 			}
 		},
 		created:function(){
@@ -60,7 +61,13 @@
 				this.selectId = id;
 				this.selectText = text;
 				this.showList = !this.showList;
+				this.showClear = true;
 				this.$emit("selected",id);
+			},
+			onClear: function(){
+				this.selectText = '';
+				this.selectId  = '';
+				this.showClear = false;
 			}
 		}
 	}
@@ -85,11 +92,7 @@
 		width: 100%;
 		border: 1px solid #ddd;
 		top:35px;
-		overflow: hidden;
-		-webkit-animation: showBox 1s ease;
-		-o-animation: showBox 1s ease;
-		animation: showBox 1s ease;
-		
+		overflow: hidden;		
 	}
 	.list-box .wrapper{
 		max-height: 200px;
@@ -115,20 +118,31 @@
 	.select-icon{
 		position: absolute;
 		right: 0;
-		top: 0;
+		top: 50%;
+	    margin-top: -10px;
+	    margin-right: 7px;
 		color:#6f6c6c;
-		padding: 9px 10px;
 	}
-
-/*	.slide-enter-active, .slide-leave-active {
+	.clear-data{
+		position: absolute;
+		top:50%;
+		right: 20px;
+		margin-top: -12px;
+		font-weight: normal;
+		padding:2px;
+		color:#999;
+		cursor: pointer;
+	}
+	
+	.slide-enter-active, .slide-leave-active {
 	  transition: opacity .4s;
 	}
 	.slide-enter, .slide-leave-to  {
 	  opacity: 0;
 	}
-*/
-	@keyframes showBox{
+
+/*	@keyframes showBox{
 		0%{opacity: 0;}
 		100%{opacity: 1;}
-	} 
+	} */
 </style>
