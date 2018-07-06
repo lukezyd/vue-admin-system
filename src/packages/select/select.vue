@@ -7,9 +7,13 @@
 			<input type="text" class="hide selectId" v-model="selectId" readonly="readonly" >
 			<transition name="slide">
 				<div class="list-box" v-if="showList" :style="selectStyle.vlist">
+					<div class="list-search" @click="stopHide" v-show="showSearch">
+						<input class="search-ipt"  v-model="searchVale" @keyup="filter" type="text"> 
+						<span class="search-icon"><i class="fa fa-search"></i></span>
+					</div>
 					<div class="wrapper" :class="{expendWidth:expendWidth}">
 						<ul>
-							<li v-for="item in lists" :key="item.id" @click="onSelect(item.id,item.text)">{{ item.text }}</li>
+							<li v-for="item in listsCopy" :key="item.id" @click="onSelect(item.id,item.text)">{{ item.text }}</li>
 						</ul>
 					</div>
 				</div>
@@ -27,11 +31,18 @@
 	export default {
 		name :"vselect",
 		props:{
+			defaultText:{
+				type:String
+			},
+			defaultId:{},
 			lists:{
 				type:Array
 			},
 			selectStyle:{
 				type:Object
+			},
+			showSearch:{
+				type:Boolean
 			}
 		},
 		data() {
@@ -42,17 +53,26 @@
 				isDown:true,
 				isUp:false,
 				expendWidth:false,
-				showClear:false
+				showClear:false,
+				searchVale:'',
+				listsCopy:[]
 			}
 		},
 		created:function(){
-			if(this.lists.length > 6){
-				this.expendWidth = true;
-			}
+			this.init();
+			this.autoHide();
 		},
-		
 		methods:{
-			onClick: function(){
+			init: function(){
+				if( this.defaultText )  	{ this.selectText 	= this.defaultText; }
+				if( this.defaultId )   		{ this.selectId  	= this.defaultId; }
+				if( this.lists.length > 6)	{ this.expendWidth 	= true;	}
+				this.listsCopy = this.lists;
+			},
+			onClick: function(event){
+				var e = event || window.event;
+				e.stopPropagation();
+
 				this.isUp = !this.isUp;
 				this.isDown = !this.isDown;
 				this.showList = !this.showList;
@@ -68,6 +88,29 @@
 				this.selectText = '';
 				this.selectId  = '';
 				this.showClear = false;
+			},
+			autoHide: function(){
+				var self = this;
+				document.addEventListener("click",function(){
+					self.showList = false;
+				});
+			},
+			stopHide: function(event){
+				var e = event || window.event;
+				e.stopPropagation();
+			},
+			filter: function(){
+				var value = this.searchVale;
+				var _list = [];
+
+				if(String(value).length){
+					this.lists.forEach(function(item,index){
+						item.text.indexOf(value) > -1 ? _list.push(item) : '';
+					});			
+					this.listsCopy = _list;
+				}else{
+					this.listsCopy = this.lists;
+				}
 			}
 		}
 	}
@@ -80,12 +123,13 @@
 	   	display: inline-block;
 	}
 	.choose{
-		width: 100px;
 	    height: 35px;
 	    border: 1px solid #ddd;
 	    border-radius: 3px;
 	    padding: 5px 7px;
 	    cursor: pointer;
+	    min-width: 100px;
+	   	width: 100%;
 	}
 	.list-box{
 		position: absolute;
@@ -133,16 +177,30 @@
 		color:#999;
 		cursor: pointer;
 	}
-	
-	.slide-enter-active, .slide-leave-active {
-	  transition: opacity .4s;
+	.slide-enter-active, .slide-leave-active{
+		transition: opacity .4s;
 	}
-	.slide-enter, .slide-leave-to  {
-	  opacity: 0;
+	.slide-enter, .slide-leave-to{
+		opacity: 0;
 	}
-
-/*	@keyframes showBox{
-		0%{opacity: 0;}
-		100%{opacity: 1;}
-	} */
+	.list-search{
+		position: relative;
+		padding: 8px;
+	}
+	.list-search .search-ipt{
+		height: 32px;
+		border: 1px solid #ddd;
+		border-radius: 3px;
+		padding: 5px 25px 5px 8px;
+		outline: none;
+		font-size: 14px;
+		width: 100%;
+	}
+	.list-search .search-icon{
+		position: absolute;
+		top:10px;
+		padding: 5px;
+		right: 10px;
+		color:#ccc;
+	}
 </style>
