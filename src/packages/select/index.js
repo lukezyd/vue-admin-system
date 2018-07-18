@@ -1,10 +1,7 @@
-import select from './select.vue'
-import Vue from 'vue'
+import zselect from './select.vue'
 
-const vselect = {
-	install :function(){
-		Vue.component("v-select",select);
-	}
+zselect.install = function(Vue){
+	Vue.component(zselect.name,zselect);
 }
 
-export default vselect
+export default zselect

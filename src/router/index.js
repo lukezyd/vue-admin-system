@@ -7,6 +7,7 @@ const main = require("../pages/main");
 
 const userLogin = require("../pages/login");
 const homePage = require("../pages/home");
+const test = require("../pages/test");
 
 const routes = [
 	{path:"/",component:userLogin},
@@ -16,7 +17,8 @@ const routes = [
 		children:[
 			{path:'/',component:homePage}
 		]
-	}
+	},
+	{path:"/test",component:test},
 ];
 
 Vue.prototype.echarts = echarts

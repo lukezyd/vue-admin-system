@@ -1,20 +1,19 @@
 import App from './App'
 import axios from 'axios'
 import router from './router'
-// import ElementUI from 'element-ui'
-// import 'element-ui/lib/theme-chalk/index.css'
 import Vue from 'vue'
 import store from './store/store'
 import select from './packages/select'
-import valert from './packages/msgAlert'
-import "font-awesome/css/font-awesome.css"
-
+import zalert from './packages/alert'
+import zcheckbox from './packages/checkbox'
+import 'font-awesome/css/font-awesome.css'
+import './assets/css/style.css'
 
 Vue.config.productionTip = true;
 Vue.prototype.$axios = axios;
-// Vue.use(ElementUI);
 Vue.use(select);
-Vue.use(valert);
+Vue.use(zalert);
+Vue.use(zcheckbox);
 
 const app = new Vue({
   router,

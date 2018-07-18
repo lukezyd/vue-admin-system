@@ -41,5 +41,6 @@
 .person-icon{
 	display: inline-block;
 	padding: 14px;
+	cursor: pointer;
 }
 </style>

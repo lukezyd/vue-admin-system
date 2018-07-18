@@ -23,13 +23,8 @@
 </template>
 
 <script>
-	/* selectStyle : 自定义样式
- 	 * selectStyle.vipt : 自定义输入框的样式
-	 * selectStyle.vicon : 自定义icon的样式
-	 * selectStyle.vlist : 自定义下拉框的样式
-	 */
 	export default {
-		name :"vselect",
+		name :"zselect",
 		props:{
 			defaultText:{
 				type:String

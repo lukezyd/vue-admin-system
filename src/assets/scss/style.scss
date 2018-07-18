@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+*{padding: 0;margin: 0;box-sizing:border-box;}
+.hide{display: none;}
+// - 提示框
+.zAlert{
+	position: absolute;left: 0;right: 0;top:15%;margin:0 auto;z-index: 9999;
+	.zAlert-box{ display: inline-block;padding: 15px;color:#333;border-radius: 2px;max-width: 430px;}
+	.zAlert-box__title{font-size: 15px;color:#fff;float: left;margin-bottom: 8px;}
+	.zAlert-box__icon{ margin-right: 5px;}
+	.zAlert-box__close{color:#fff;float:right;cursor: pointer;padding: 5px 8px;margin-top: -5px;margin-right: -8px;}
+	.zAlert-box__msg{ display: inline-block;width: 100%;line-height: 22px;text-align: center;font-size: 16px;color:#fff;}
+	.zAlert-box__msg--error{ background: #e89191; }
+	.zAlert-box__msg--warn{ background: #f1ce7e; }
+	.zAlert-box__msg--success{ background: #90cc8d; }
+	
+}
+.zAlert-down-enter-active{
+	animation: zAlertSlideDown .6s;
+}
+.zAlert-down-leave-active{
+	animation: zAlertSlideup .6s;
+}
+@keyframes zAlertSlideDown{
+	0% {top:-10%;}
+	100% {top:15%;}
+}
+@keyframes zAlertSlideUp{
+	0% {opacity:1;}
+	100% {opacity:0;}
+}
+
+//复选框
+.zCheckbox{
+	display: inline-block;position: relative;
+	.zCheckbox-box{}
+	.zCheckbox-box__label{display: inline-block;cursor: pointer;line-height: 32px;}
+	.zCheckbox-box__icon{color: #5db8dc;font-size: 24px;height: 32px;line-height: 32px;}
+	.zCheckbox-box__icon i{height: 28px;}
+	.zCheckbox-box__text{}
+}
