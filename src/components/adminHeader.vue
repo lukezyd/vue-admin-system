@@ -1,11 +1,37 @@
 <template>
-	<header class="admin-header clearfix">
-		<span class="nav-setting fl">
+	<header class="zHeader clearfix">
+		<span class="zHeader-setting fl">
 			<i class="fa fa-bars fa-2x"></i>
 		</span>
-		<h2 class="v-title fl"><i class="red">V</i>ADMIN</h2>
-		<div class="person-box  fr">
-			<span class="person-icon"><i class="fa fa-align-right fa-2x"></i></span>
+		<h2 class="zHeader-title fl"><i class="red">Z</i>ADMIN</h2>
+		<div class="zHeader-person  fr">
+			<div class="person-search fl">
+				<span class="person-search__icon" >
+					<i class="fa fa-search"></i>
+				</span>
+				<input class="person-search__ipt" placeholder="搜索"  type="text"
+					   @blur="hideSearch" 
+					   @focus="search" 
+					   :class="{'person-search__ipt--hide':showSearch}">
+			</div>
+			<div class="person-box fl clearfix" @click="more">
+				<span class="person-box__img">
+					<img src="/static/images/p_logo.jpg" alt="">
+				</span>
+				<span class="person-box__name">eidonlon</span>
+				<i class="fa fa-caret-down"></i>
+				<div class="person-box__more" v-show="showMore">
+					<ul class="more-item">
+						<li>资料<i class="fa fa-credit-card"></i></li>
+						<li>设置<i class="fa fa-cog"></i></li>
+						<li>消息<i class="fa fa-bell-o"></i></li>
+					</ul>
+					<div class="more-logout">
+						退出登陆
+						<i class="fa fa-sign-out"></i>
+					</div>
+				</div>
+			</div>
 		</div>
 	</header>
 </template>
@@ -14,33 +40,20 @@
 		name:"adminHeader",
 		data(){
 			return {
-
+				showSearch:true,
+				showMore:false
+			}
+		},
+		methods:{
+			search: function(){
+				this.showSearch = false;
+			},
+			hideSearch: function(){
+				this.showSearch = true;
+			},
+			more: function(){
+				this.showMore = !this.showMore;
 			}
 		}
 	}
 </script>
-
-<style>
-.admin-header{
-	height: 60px;
-	width: 100%;
-	background: #fff;
-	position: relative;
-}
-.nav-setting{
-	padding: 14px;
-	cursor: pointer;
-}
-.admin-header h2{
-	line-height: 60px;
-}
-.red{color:red;font-style: normal;}
-.person-box{
-	height: 100%;
-}
-.person-icon{
-	display: inline-block;
-	padding: 14px;
-	cursor: pointer;
-}
-</style>

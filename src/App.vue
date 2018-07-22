@@ -21,11 +21,7 @@ export default {
 
 <style>
 *{padding: 0;margin:0;box-sizing: border-box;}
-.clearfix{zoom:1;}
-.clearfix:before,.clearfix:after {content: ' ';display:table;}
-.clearfix:after{clear:both;visibility: hidden;font-size: 0;height: 0;}
-.fl{float: left;}
-.fr{float: right;}
+
 .btn{outline: none;}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
