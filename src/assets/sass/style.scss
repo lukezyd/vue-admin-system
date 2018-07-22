@@ -80,3 +80,38 @@ li{list-style: none;}
 		}
 	}
 }
+
+.zHome{
+	padding: 20px;width: 100%;position: relative;background: #f1f2f7;
+	.zHome-datasum{
+		li{float: left;width: 20%;margin-right: 6.6666%;text-align: center;height: 80px;background:#fff;cursor: pointer;border-radius: 5px;}
+		li:last-child{margin-right: 0;}
+		li .fa{padding:  24px;color:#fff;width: 40%;}
+		.zHome-datasum__box{
+			text-align: center;overflow: hidden;padding: 10px 0;border-left:none;
+			.sun-num{font-size: 34px;display: block;font-weight: bold;}
+			.sun-desc{font-size: 13px;color:#a2a2a2;}
+		}
+	}
+	.zHome-main__chart{margin: 25px 0;width: 65%;height: 450px;border-radius: 5px;}
+	.zHome-aside__chart{width: 33%;height: 450px;margin-left: 2%;}
+	.zHome-recommend{
+		width: 33%;background: #fff;margin-top: 25px;height: 450px;margin-left: 2%;
+		.zHome-recommend__info{padding: 15px;}
+		.info-logo img{width: 120px;height: 108px;}
+		.info-main{
+			overflow: hidden;
+			p{text-align: left;padding-left: 20px;margin-top: 12px;}
+			.info-main__name{color:#4ac7ef;}
+		}
+		li{border-top: 1px solid #eee;line-height: 45px;text-align: center;padding: 0 20px;}
+	}
+	.zHome-rank{
+		width: 65%;height: 450px;background: #fff;
+		.zHome-rank__head{padding:15px;}
+		li{
+			line-height: 42px;padding:0 15px;display: table;width: 100%;border-top:1px solid #eee;
+			span{display: table-cell;}
+		}
+	}
+}
