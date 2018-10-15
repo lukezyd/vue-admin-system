@@ -11,7 +11,15 @@
 input{outline: none;}
 li{list-style: none;}
 
+/*布局*/
+.zw-100{width:100%;}
+.zw-50{width:50%;}
+.zw-25{width:25%;}
+.zw-75{width:75%;}
+.zw-33{width:33.33%;}
+.zw-66{width:66.66%;}
 
+/*弹框*/
 .zAlert{
 	position: absolute;left: 0;right: 0;top:15%;margin:0 auto;z-index: 9999;
 	.zAlert-box{ display: inline-block;padding: 15px;color:#333;border-radius: 2px;max-width: 430px;}
@@ -38,14 +46,15 @@ li{list-style: none;}
 	100% {opacity:0;}
 }
 
-.zCheckbox{
-	display: inline-block;position: relative;
-	.zCheckbox-box{}
-	.zCheckbox-box__label{display: inline-block;cursor: pointer;line-height: 32px;}
-	.zCheckbox-box__icon{color: #5db8dc;font-size: 24px;height: 32px;line-height: 32px;}
-	.zCheckbox-box__icon i{height: 28px;}
-	.zCheckbox-box__text{}
-}
+/*复选框*/
+// .zCheckbox{
+// 	display: inline-block;position: relative;
+// 	.zCheckbox-box{}
+// 	.zCheckbox-box__label{display: inline-block;cursor: pointer;line-height: 32px;}
+// 	.zCheckbox-box__icon{color: #5db8dc;font-size: 24px;height: 32px;line-height: 32px;}
+// 	.zCheckbox-box__icon i{height: 28px;}
+// 	.zCheckbox-box__text{}
+// }
 
 .zHeader{
 	height:60px;width: 100%;background: #fff;position: relative;
@@ -115,3 +124,4 @@ li{list-style: none;}
 		}
 	}
 }
+

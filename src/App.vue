@@ -21,7 +21,6 @@ export default {
 
 <style>
 *{padding: 0;margin:0;box-sizing: border-box;}
-
 .btn{outline: none;}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

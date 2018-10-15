@@ -5,11 +5,14 @@
 				<li  v-for="(item,i) in sumList">
 					<span class="fa fl" :style="{background:colorList[i]}" :class="item.icon" ></span>
 					<div class="zHome-datasum__box">
-						<span class="sun-num">{{item.num}}</span>
+						<span  class="sun-num">{{item.num}}</span>
 						<span class="sun-desc">{{item.desc}}</span>
 					</div>
 				</li>
 			</ul>
+		</div>
+		<div>
+			<p v-bind:value="value">{{value}}</p>
 		</div>
 		<div class="zHome-main__chart fl">
 			<zchart :chartId="chart01.chartId" :options="chart01.chartoptions" style="width:100%;height:100%"></zchart>
@@ -57,10 +60,10 @@
 					style="width:100%;height:48%">
 			</zchart>
 		</div>
-		
 	</div>
 </template>
 <script>
+	import	TWEEN from 'Tween.js'
 	export default {
 		name :"home",
 		data(){
@@ -195,10 +198,36 @@
 					'background-color': '#6cb2d9',
 					'color':'#fff',
 					'border-radius':' 5px'
-				}
+				},
+				value:200
+			}
+		},
+		mounted:function(){
+			this.tween(10,this.value);
+		},
+		watch:{
+			value: function(newValue,oldValue){
+				this.tween(oldValue,newValue);
 			}
 		},
 		methods : {
+			tween: function (startValue, endValue) {
+		      var self = this;
+		      function animate () {
+		        if (TWEEN.update()) {
+		          requestAnimationFrame(animate)
+		        }
+		      };
+		      console.log("startValue:"+startValue)
+		      new TWEEN.Tween({ tweeningValue: startValue })
+		        .to({ tweeningValue: endValue }, 500)
+		        // .onUpdate(function (object) {
+		        // 	console.log(object)
+		        //   self.tweeningValue = object.tweeningValue.toFixed(0)
+		        // })
+		        .start();
+		      animate();
+		    }
 		}
 	}
 </script>

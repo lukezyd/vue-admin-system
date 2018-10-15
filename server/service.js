@@ -15,11 +15,10 @@ var router = function(app){
 		if(account == "v" && password == "v"){
 			res.send({"code":0,"msg":"ok",data:{authority:["home","page01","page02"]}});
 		}else{
-			res.send({"code":10001,"msg":"用户名密码错误"});
+			res.send({"code":10001,"msg":"用户名或密码错误"});
 		}
 	});
 }
-
 
 
 module.exports = router;

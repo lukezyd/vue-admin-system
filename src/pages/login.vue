@@ -3,10 +3,15 @@
 		<div class="login">
 			<div class="login-content">
 				<div class="login-item"><span class="login-logo">vue admin system</span></div>
-				<div class="login-item"><input v-model="account" placeholder="用户名" type="text" class="account"></div>
-				<div class="login-item"><input v-model="password" placeholder="密码" type="password"></div>
+				<div class="login-item">
+					<el-input v-model="account" class="account" placeholder="用户名"></el-input>
+				</div>
+				<div class="login-item">
+					<el-input v-model="password" type="password" placeholder="密码"></el-input>
+				</div>
 				<div class="login-item remember-box">
-					<!-- <el-checkbox v-model="rememberMe">记住密码</el-checkbox> -->
+					<el-checkbox v-model="rememberMe">记住密码</el-checkbox>
+					<p class="login-item_error" v-show="loginError">{{errorText}}</p>
 				</div>
 				<div class="login-item"><input @click="login()" class="login-btn" type="button" value="登录"></div>
 			</div>
@@ -18,9 +23,11 @@
 		name: "login",
 		data: function(){
 			return {
-				account:"",
-				password:"",
-				rememberMe:false
+				account:'',
+				password:'',
+				rememberMe:false,
+				errorText:'',
+				loginError:false
 			}
 		},
 		methods: {
@@ -35,13 +42,30 @@
 				}).then(function(response){
 					console.log(response.data);
 					if(response.data.code == 0){
-						self.$router.push("/index");
-						self.$store.state.authorityList = isArray(response.data.authority) ? response.data.authority : (response.data.authority).split(",");
+						self.$router.push('/index');
+						self.$store.state.authorityList = isArray(response.data.authority) ? response.data.authority : (response.data.authority).split(',');
+					}else{
+						self.errorText = response.data.msg;
+						self.loginError = true;
 					}
 				}).catch(function(error){
 					console.log(error);
 				});
 			}
+		},
+		watch:{
+			account:function(val,oldval){
+				if(val != oldval){
+					this.errorText = '';
+					this.loginError = false;
+				}
+			},
+			password:function(val,oldval){
+				if(val != oldval){
+					this.errorText = '';
+					this.loginError = false;
+				}
+			},
 		}
 	}
 </script>
@@ -65,11 +89,10 @@
 		width: 60%;
 		height: 60px;
 		margin: 15px auto;
-		border:1px solid #ddd;
-		/*临时*/
-		font-size: 24px;
+		font-size: 34px;
     	line-height: 60px;
     	color: #81b38a;
+    	border-radius: 3px;
 	}
 	.login-item{
 		width: 100%;
@@ -77,6 +100,8 @@
 		margin-bottom: 18px;
 	    font-size: 15px;
 	}
+	.login-item_error{color:red;display: inline-block;font-size: 13px;
+    margin-left: 20px;}
 	.login-item input{
 		width: 70%;
 		height: 32px;
