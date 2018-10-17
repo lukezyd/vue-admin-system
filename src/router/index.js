@@ -8,6 +8,7 @@ const main = require("../pages/main");
 const userLogin = require("../pages/login");
 const homePage = require("../pages/home");
 const test = require("../pages/test");
+const map = require("../packages/charts/map/map.vue");
 
 const routes = [
 	{path:"/",component:userLogin},
@@ -19,6 +20,7 @@ const routes = [
 		]
 	},
 	{path:"/test",component:test},
+	{path:"/map",component:map},
 ];
 
 Vue.prototype.echarts = echarts
@@ -26,4 +28,4 @@ Vue.use(Router);
 
 export default new Router({
   routes:routes
-})
+});

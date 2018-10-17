@@ -373,3 +373,5 @@ var countries = {
 	'菏泽': [115.480656, 35.23375],
 	'大庆': [125.03, 46.58]
 }
+
+export default countries;
