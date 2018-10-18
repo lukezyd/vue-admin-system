@@ -52,33 +52,25 @@
 				var self = this;
 
 				this.$refs.loginForm.validate((valid) => {
-					console.log(valid);
 					if(valid){
-						alert("ok");
+						this.$axios.post('/login',{
+							account:self.loginForm.account;,
+							password:self.loginForm.password;
+						}).then(function(response){
+							if(response.data.code == 0){
+								self.$router.push('/index');
+								self.$store.state.authorityList = isArray(response.data.authority) ? response.data.authority : (response.data.authority).split(',');
+							}else{
+								self.errorText = response.data.msg;
+								self.loginError = true;
+							}
+						}).catch(function(error){
+							console.log(error);
+						});
 					}else{
-						alert("error");
-						return;
+						return false;
 					}
 				})
-
-				var account = this.loginForm.account;
-				var password = this.loginForm.password;
-
-				this.$axios.post('/login',{
-					account:account,
-					password:password
-				}).then(function(response){
-					console.log(response.data);
-					if(response.data.code == 0){
-						self.$router.push('/index');
-						self.$store.state.authorityList = isArray(response.data.authority) ? response.data.authority : (response.data.authority).split(',');
-					}else{
-						self.errorText = response.data.msg;
-						self.loginError = true;
-					}
-				}).catch(function(error){
-					console.log(error);
-				});
 			}
 		},
 		watch:{
