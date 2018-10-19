@@ -25,7 +25,7 @@ var zvis = {};
 		  	$(".vis-item.vis-background").find(".vis-item-overflow").css("background","rgba(82, 181, 97,.2)");
 		  	$(this).css("background","rgba(82, 181, 97,.6)");
 
-		  	drawLineSymbol = false;
+		  	// drawLineSymbol = false;
 		  	// self.rStrokeDetails(_index - 1,itemList);
 		  	return;
 		});

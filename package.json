@@ -17,6 +17,7 @@
     "element-ui": "^2.4.6",
     "font-awesome": "^4.7.0",
     "less-loader": "^4.1.0",
+    "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.9.2",
     "style-loader": "^0.21.0",
     "supervisor": "^0.12.0",

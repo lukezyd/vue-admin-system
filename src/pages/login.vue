@@ -28,15 +28,10 @@
 	export default {
 		name: "login",
 		data: function(){
-			const validatorFn = function(rule, val, callback){
-				if(val.length < 6){
-					alert('不能少于六位');
-				}
-			}
 			return {
 				loginForm:{
-					account:'',
-					password:''
+					account:'admin',
+					password:'123456'
 				},
 				rememberMe:false,
 				errorText:'',
@@ -53,11 +48,12 @@
 
 				this.$refs.loginForm.validate((valid) => {
 					if(valid){
-						this.$axios.post('/login',{
-							account:self.loginForm.account;,
-							password:self.loginForm.password;
+						self.$axios.post('/islogin',{
+							account:self.loginForm.account,
+							password:self.loginForm.password
 						}).then(function(response){
-							if(response.data.code == 0){
+							console.log(response)
+							if(response.data.code == 200){
 								self.$router.push('/index');
 								self.$store.state.authorityList = isArray(response.data.authority) ? response.data.authority : (response.data.authority).split(',');
 							}else{
@@ -67,6 +63,7 @@
 						}).catch(function(error){
 							console.log(error);
 						});
+
 					}else{
 						return false;
 					}
@@ -91,13 +88,13 @@
 </script>
 <style>
 	.login-bg{width: 100%;height: 100%;overflow: hidden;
-		background: url(/static/images/login.jpg) no-repeat;background-size: 100% 100%;
+		/*background: url(/static/images/login.jpg) no-repeat;background-size: 100% 100%;*/
 	}
 	.login{
 		padding: 20px 0;
 		width: 560px;
 		right:0;
-		height:420px;background:rgba(80, 119, 125, 0.5);position: absolute;top: 30%;
+		/*height:420px;background:rgba(80, 119, 125, 0.5);position: absolute;top: 30%;*/
 	}
 	.login-content{
 		padding: 15px 70px;

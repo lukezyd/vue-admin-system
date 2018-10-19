@@ -1,27 +1,28 @@
 <template>
 	<div class="test">
-		<zselect class="select-demo"
+		<!-- <zselect class="select-demo"
 				:lists="lists" 
 				:selectStyle="selectStyle" 
 				:showSearch="showSearch" 
 				:defaultText="defaultText" 
 				:defaultId="defaultId">
-		</zselect>	
+		</zselect>	 -->
 
-		<z-alert v-show="showa" :alertType="alertType" :msgMain="msgMain" :title="title" :autoClose="autoClose">
+		<!-- <z-alert v-show="showa" :alertType="alertType" :msgMain="msgMain" :title="title" :autoClose="autoClose"> -->
 			<!-- <div slot="alertMain"><i class="fa fa-warning"></i>it is a error tips</div> -->
-		</z-alert>
+		<!-- </z-alert> -->
 
 		<!-- <v-input class="input-test" :defaultVlaue="defaultVlaue" :placeholder="placeholder"></v-input> -->
-		<zcheckbox  :ischecked="checked">
-			wqqtq
-		</zcheckbox>
+		<!-- <zcheckbox  :ischecked="checked"> -->
+			<!-- wqqtq -->
+		<!-- </zcheckbox> -->
 
 		<input type="button" @click="change" value="change">
+		<p>{{num}}</p>
 	</div>
 </template>
-
 <script>
+	import TWEEN from 'tween.js'
 	export default{
 		name:"test",
 		data (){
@@ -51,9 +52,9 @@
 				],
 				showSearch:true,
 				selectStyle:{
-					// vicon:{
-					// 	color:"red"
-					// }
+					vicon:{
+						color:"red"
+					}
 				},
 				title:"错误:",
 				checkboxText:"测试checkbox",
@@ -63,12 +64,29 @@
 				msgMain:"this is a test alert,this is a test alert,this is a test alert",
 				defaultVlaue:'defaultVlaue',
 				placeholder:"请输入",
-				checked:false
+				checked:false,
+				num:124
 			}
+		},
+		mounted(){
+			this.add();
 		},
 		methods:{
 			change: function(){
-				this.showa = ! this.showa;
+				// this.showa = ! this.showa;
+				this.add();
+			},
+			add:function(){
+				if(this.num < 200){
+					this.num++;
+					requestAnimationFrame(this.add);
+				}
+				// TWEEN.update();
+			},
+			numChange: function(){
+				// var self = this;
+				// new TWEEN.Tween(this.num).to().start();
+				this.add();
 			}
 		}
 	}

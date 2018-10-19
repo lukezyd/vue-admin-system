@@ -20,7 +20,7 @@ const routes = [
 		]
 	},
 	{path:"/test",component:test},
-	{path:"/map",component:map},
+	{path:"/map",component:map}
 ];
 
 Vue.prototype.echarts = echarts

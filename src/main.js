@@ -9,6 +9,9 @@ import 'font-awesome/css/font-awesome.css'
 import './assets/sass/element-variable.scss'
 import './assets/sass/style.scss'
 
+// import './mock'
+require('./mock')
+
 import zchart from '@/packages/charts'
 
 // window.echarts = echarts
