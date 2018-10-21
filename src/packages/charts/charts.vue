@@ -44,6 +44,11 @@
 				var options = Object.assign({},_options,this.options);
 				var myChart = this.echarts.init(id);
 				myChart.setOption(options);
+
+				window.onresize = function(){
+					console.log(id)
+					myChart.resize();
+				}
 			}
 		}
 	}

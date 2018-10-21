@@ -19,7 +19,8 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss">
+$--color-primary: #81b38a;
 *{padding: 0;margin:0;box-sizing: border-box;}
 .btn{outline: none;}
 #app {

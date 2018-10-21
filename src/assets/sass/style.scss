@@ -57,7 +57,7 @@ li{list-style: none;}
 // }
 
 .zHeader{
-	height:60px;width: 100%;background: #fff;position: relative;
+	height:60px;width: 100%;background: #fff;position: relative;border-bottom: 1px solid #eaeaea;
 	.zHeader-setting{padding: 14px;cursor: pointer;}
 	.zHeader-title{
 		line-height:60px;
@@ -91,29 +91,32 @@ li{list-style: none;}
 }
 
 .zHome{
-	padding: 20px;width: 100%;position: relative;background: #f1f2f7;
+	padding:0 15px;width: 100%;position: relative;background: #f1f2f7;padding-bottom:30px;
 	.zHome-datasum{
+		width:94%;margin-left:3%;
 		li{float: left;width: 20%;margin-right: 6.6666%;text-align: center;height: 80px;background:#fff;cursor: pointer;border-radius: 5px;}
 		li:last-child{margin-right: 0;}
-		li .fa{padding:  24px;color:#fff;width: 40%;}
+		li .fa{padding:  24px;color:#fff;width: 40%;border-top-left-radius:5px;border-bottom-left-radius:5px;}
 		.zHome-datasum__box{
 			text-align: center;overflow: hidden;padding: 10px 0;border-left:none;
 			.sun-num{font-size: 34px;display: block;font-weight: bold;}
 			.sun-desc{font-size: 13px;color:#a2a2a2;}
 		}
 	}
-	.zHome-main__chart{margin: 25px 0;width: 65%;height: 450px;border-radius: 5px;}
+	.zHome-main__chart{margin: 25px 0;width: 70%;height: 425px;border-radius: 5px;background:#fff;}
 	.zHome-aside__chart{width: 33%;height: 450px;margin-left: 2%;}
+	.zHome-other__chart{width: 33%;height: 560px;margin-right: 2%;margin-bottm: 20px;}
 	.zHome-recommend{
-		width: 33%;background: #fff;margin-top: 25px;height: 450px;margin-left: 2%;
+		width: 27%;background: #fff;margin-top: 25px;height:422px;margin-left: 2%;
 		.zHome-recommend__info{padding: 15px;}
 		.info-logo img{width: 120px;height: 108px;}
 		.info-main{
-			overflow: hidden;
+			overflow: hidden;margin: 10px 0 0 10px;font-size:14px;
 			p{text-align: left;padding-left: 20px;margin-top: 12px;}
-			.info-main__name{color:#4ac7ef;}
+			.info-main__name{color:#4ac7ef;font-size: 22px;}
 		}
-		li{border-top: 1px solid #eee;line-height: 45px;text-align: center;padding: 0 20px;}
+		li{border-top: 1px solid #eee;line-height: 45px;text-align: center;padding: 0 20px;color:#828282}
+		li:hover{background:#ddd;}
 	}
 	.zHome-rank{
 		width: 65%;height: 450px;background: #fff;
@@ -121,7 +124,27 @@ li{list-style: none;}
 		li{
 			line-height: 42px;padding:0 15px;display: table;width: 100%;border-top:1px solid #eee;
 			span{display: table-cell;}
+			&:hover{background:#ddd;}
 		}
+	}
+
+	.zHome-timeline{
+		width: 65%;margin-bottom: 20px;background:#fff;
 	}
 }
 
+
+// 面包屑导航
+.breadcrumb{
+	height: 40px;line-height: 40px;margin: 0 -15px;padding:0 10px;
+	background: #fff;
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 15px;
+}
+.el-breadcrumb{
+	line-height: 40px;
+}
+
+.ztable{
+	padding:0 15px;
+}

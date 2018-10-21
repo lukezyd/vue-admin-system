@@ -3,8 +3,10 @@
       <admin-header></admin-header>
       <admin-nav @navToggle="navToggles"></admin-nav>
       <div class="main-page">
-        <crumbs :showCrumbs="showCrumbs" :cList="crumbsList"></crumbs>
         <router-view></router-view>
+      </div>
+      <div class="footer">
+        copyright © 2018-10
       </div>
   </div>
 </template>
@@ -55,6 +57,16 @@ export default {
 <style>
 .main-page{
   overflow: auto;
-  height: calc(100% - 60px);
+  height: calc(100% - 100px);
+}
+
+.footer{
+  position: absolute;
+  width:100%;
+  height:30px;
+  line-height:40px;
+  background: #393a3c;
+  color:#fff;
+  bottom:0;
 }
 </style>

@@ -10,13 +10,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
-// const axios = require('axios')
-const express = require('express');
-const apiRouter = express.Router();
-const app = express()
-var router = require("../server/service");
-app.use("/api",apiRouter);
-
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
@@ -49,16 +42,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,
-    },
-     proxy: {
-      '/api': {
-        target: 'http://127.0.0.1:8080',
-        changeOrigin: true,
-        pathRewrite: { '^/api': '' }
-      }
-    },
-    before(app){
-      router(app);
     }
   },
   plugins: [

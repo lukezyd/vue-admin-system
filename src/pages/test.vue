@@ -22,7 +22,7 @@
 	</div>
 </template>
 <script>
-	import TWEEN from 'tween.js'
+	// import TWEEN from 'tween.js'
 	export default{
 		name:"test",
 		data (){

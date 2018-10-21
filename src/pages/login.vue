@@ -5,10 +5,12 @@
 				<div class="login-content">
 					<div class="login-item"><span class="login-logo">vue admin system</span></div>
 					<el-form-item prop="account" class="login-item">
+						<span class="fa fa-user-o"></span>
 						<el-input v-model="loginForm.account" class="account" placeholder="用户名"></el-input>
 					</el-form-item>
 					<div class="login-item">
 						<el-form-item prop="password" class="login-item">
+							<span class="fa fa-key fa-fw"></span>
 							<el-input v-model="loginForm.password" type="password" placeholder="密码"></el-input>
 						</el-form-item>
 					</div>
@@ -25,6 +27,8 @@
 	</div>
 </template>
 <script>
+
+	// import { setToken, getToken } from '../utils/token'
 	export default {
 		name: "login",
 		data: function(){
@@ -52,9 +56,9 @@
 							account:self.loginForm.account,
 							password:self.loginForm.password
 						}).then(function(response){
-							console.log(response)
 							if(response.data.code == 200){
-								self.$router.push('/index');
+								// setToken(response.data.token);
+								self.$router.push('/');
 								self.$store.state.authorityList = isArray(response.data.authority) ? response.data.authority : (response.data.authority).split(',');
 							}else{
 								self.errorText = response.data.msg;
@@ -86,15 +90,15 @@
 		}
 	}
 </script>
-<style>
+<style >
 	.login-bg{width: 100%;height: 100%;overflow: hidden;
-		/*background: url(/static/images/login.jpg) no-repeat;background-size: 100% 100%;*/
+		background: url(/static/images/login.jpg) no-repeat;background-size: 100% 100%;
 	}
 	.login{
 		padding: 20px 0;
-		width: 560px;
-		right:0;
-		/*height:420px;background:rgba(80, 119, 125, 0.5);position: absolute;top: 30%;*/
+		width: 470px;
+		right:20px;
+		height:370px;background:rgba(158, 150, 150, 0.8);position: absolute;top: 30%;
 	}
 	.login-content{
 		padding: 15px 70px;
@@ -114,13 +118,13 @@
 		margin: 10px auto;
 		font-size: 30px;
     	line-height: 60px;
-    	color: #81b38a;
+    	color: #4cadcc;
     	border-radius: 3px;
 	}
 	.login-item{
+		position: relative;
 		width: 100%;
 		text-align: center;
-		margin-bottom: 18px;
 	    font-size: 15px;
 	}
 	.login-item_error{
@@ -130,11 +134,10 @@
    		margin-left: 20px;
    	}
 	.login-item input{
-		/*width: 70%;*/
 		height: 32px;
 		border:1px solid #ddd;
 		border-radius: 3px;
-		padding: 3px 7px;
+		padding: 3px 28px !important;
 		outline: none;
 	}
 	.login-item .login-btn{
@@ -147,7 +150,9 @@
 	.login-btn:hover{
 		background: #5e9267;
 	}
-	.remember-box{text-align: left;}
+
+	.login .fa{position: absolute;z-index: 999;top: 12px;left: 8px;color:#7d7d7d;}
+	.remember-box{text-align: left;margin-bottom: 5px;}
 	.el-checkbox__inner{width: 16px;height: 16px;}
 	.el-checkbox__inner::after{height: 8px;left: 5px;top:2px;}
 </style>
