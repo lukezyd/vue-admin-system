@@ -6,7 +6,7 @@ import loginAPI from './login'
 // })
 
 // 登录相关
-Mock.mock('/islogin', 'post', loginAPI.loginFn)
+Mock.mock('/isLogin', 'post', loginAPI.loginFn)
 // Mock.mock(/\/login/, (req,res) => {
 // 	alert("is login");
 // });

@@ -1,14 +1,17 @@
-// import request from '@/utils/request'
+import $axios from '@/utils/request'
 
-// export function loginFn(name,password){
-// 	const data = {
-// 		name:name,
-// 		password:password
-// 	};
+export function login(data){
+	return $axios({
+		url:'/isLogin',
+		method:'post',
+		data
+	});
+}
 
-// 	return request({
-// 		url:'/islogin',
-// 		method:'post',
-// 		data
-// 	});
-// }
+export function logOut(){
+	return $axios({
+		url:'/isLogout',
+		method:'psot'
+	})
+}
+

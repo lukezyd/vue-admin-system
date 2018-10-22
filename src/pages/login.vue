@@ -28,7 +28,7 @@
 </template>
 <script>
 
-	// import { setToken, getToken } from '../utils/token'
+	import { login, logout } from '@/api/login'
 	export default {
 		name: "login",
 		data: function(){
@@ -47,19 +47,20 @@
 			}
 		},
 		methods: {
-			login:function(){
+			loginFn:function(){
 				var self = this;
 
 				this.$refs.loginForm.validate((valid) => {
 					if(valid){
-						self.$axios.post('/islogin',{
+						login({
 							account:self.loginForm.account,
 							password:self.loginForm.password
 						}).then(function(response){
-							if(response.data.code == 200){
+							if(response.code == 200){
 								// setToken(response.data.token);
 								self.$router.push('/');
-								self.$store.state.authorityList = isArray(response.data.authority) ? response.data.authority : (response.data.authority).split(',');
+								self.$store,commit('setToken',response.token);
+								// self.$store.state.authorityList = isArray(response.data.authority) ? response.data.authority : (response.data.authority).split(',');
 							}else{
 								self.errorText = response.data.msg;
 								self.loginError = true;
