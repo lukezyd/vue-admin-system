@@ -13,13 +13,14 @@ const user = {
 		setToken:(state,token) => {
 			state.token = token;
      		setToken(token);
+		},
+		logout: (state) => {
+			state.token = '';
+     		removeToken();
 		}
 	},
 	actions:{
-		logout: () => {
-			state.token = '';
-     		setToken('');
-		}
+		
 	}
 }
 

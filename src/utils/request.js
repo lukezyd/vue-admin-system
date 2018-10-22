@@ -3,7 +3,7 @@ import { Message } from 'element-ui'
 
 
 const ajax = new axios.create({
-	baseURL:'',
+	// baseURL:'',
 	timeout:5000
 });
 
@@ -11,7 +11,6 @@ const ajax = new axios.create({
 ajax.interceptors.request.use( 
 	config => {
 		//请求之前做的事
-
 		return config;
 	},
 	error => {
@@ -44,7 +43,6 @@ ajax.interceptors.response.use(
 		}
 	}, 
 	error => {
-		console.log(error);
 		Message({
 	      message: error.message,
 	      type: 'error',

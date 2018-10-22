@@ -21,5 +21,10 @@ export default {
       userMap[account].msg = "用户名或密码错误";
     }
     return userMap[account];
+  },
+
+  logoutFn: config => {
+    return {code:200}
   }
+
 }

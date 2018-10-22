@@ -26,7 +26,7 @@
 						<li>设置<i class="fa fa-cog"></i></li>
 						<li>消息<i class="fa fa-bell-o"></i></li>
 					</ul>
-					<div class="more-logout">
+					<div class="more-logout" @click="logout">
 						退出登陆
 						<i class="fa fa-sign-out"></i>
 					</div>
@@ -36,6 +36,8 @@
 	</header>
 </template>
 <script>
+	import { logoutFn } from '@/api/login'
+	import { Message } from 'element-ui'
 	export default{
 		name:"adminHeader",
 		data(){
@@ -53,6 +55,36 @@
 			},
 			more: function(){
 				this.showMore = !this.showMore;
+			},
+			logout: function(){
+				this.$confirm('确定要退出登陆么?', '提示', {
+		          confirmButtonText: '确定',
+		          cancelButtonText: '取消',
+		          type: 'warning'
+		        }).then(() => {
+		          logoutFn().then(response => {
+		          	this.$message({
+			            type: 'success',
+			            message: '推出成功!'
+			         });
+		          	if(response.code == 200){
+		          		this.$router.push('/login');
+		          	}
+		          },error => {
+		          	this.$message({
+		          		type: 'error',
+		           		message: '退出登录失败'
+		          	})
+		          });
+		          this.$store.commit('logout');
+		        }).catch((err) => {
+		        	console.log(err)
+		          this.$message({
+		            type: 'info',
+		            message: '已取消'
+		          });          
+		        });
+				
 			}
 		}
 	}
