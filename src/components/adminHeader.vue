@@ -65,7 +65,7 @@
 		          logoutFn().then(response => {
 		          	this.$message({
 			            type: 'success',
-			            message: '推出成功!'
+			            message: '退出成功!'
 			         });
 		          	if(response.code == 200){
 		          		this.$router.push('/login');
@@ -87,5 +87,5 @@
 				
 			}
 		}
-	}
+	};
 </script>

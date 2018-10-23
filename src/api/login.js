@@ -9,7 +9,6 @@ export function loginFn(data){
 	});
 };
 
-
 export function logoutFn(){
 	return $axios({
 		url:'/logout',

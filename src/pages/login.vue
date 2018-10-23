@@ -45,6 +45,9 @@
 				}
 			}
 		},
+		created(){
+			
+		},
 		methods: {
 			login:function(){
 				var self = this;
@@ -85,7 +88,7 @@
 				}
 			},
 		}
-	}
+	};
 </script>
 <style >
 	.login-bg{width: 100%;height: 100%;overflow: hidden;

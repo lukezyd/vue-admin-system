@@ -1,9 +1,9 @@
 <template>
 	<div class="crumbs" v-show="showCrumbs">
 		<div class="crumbs-box">
-			<ul>
-				<li v-for="item in cList"><span class="fa fa-home"></span><span class="crumbs-text"> {{item}}</span></li>
-			</ul>
+			<el-breadcrumb separator="/">
+			  <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+			</el-breadcrumb>
 		</div>
 	</div>
 </template>
@@ -25,9 +25,9 @@
 			}
 		},
 		methods:{
-
+			
 		}
-	}
+	};
 </script>
 
 <style>

@@ -39,12 +39,12 @@
 	</div>
 </template>
 <script>
-	import sumData from './components/sumdata'
-	import mainChart from './components/mainChart'
-	import champion from './components/champion'
-	import sideChart from './components/sideChart'
-	import otherChart from './components/otherChart'
-	import timeLine from './components/timeLine'
+	import sumData from './module/sumdata'
+	import mainChart from './module/mainChart'
+	import champion from './module/champion'
+	import sideChart from './module/sideChart'
+	import otherChart from './module/otherChart'
+	import timeLine from './module/timeLine'
 
 	export default {
 		name :"home",

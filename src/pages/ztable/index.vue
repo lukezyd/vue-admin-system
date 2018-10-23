@@ -10,33 +10,34 @@
 			<table-search></table-search>
 		</div>
 		<div class="ztable-main">
-			<table-simple></table-simple>
+			<!-- <table-simple></table-simple>
 			<table-complex></table-complex>
-			<table-complexest></table-complexest>
+			<table-complexest></table-complexest> -->
+			<router-view></router-view>
 		</div>
 	</div>
 </template>
 <script>
-	import tableSearch from './components/search'
-	import tableSimple from './components/simple'
-	import tableComplex from './components/complex'
-	import tableComplexest from './components/complex-est'
+	// import tableSearch from './components/search'
+	// import tableSimple from './components/simple'
+	// import tableComplex from './components/complex'
+	// import tableComplexest from './components/complex-est'
 
 	export default {
 		name:'ztable',
-		components:{
-			tableSearch,
-			tableSimple,
-			tableComplex,
-			tableComplexest
-		},
+		// components:{
+		// 	tableSearch,
+		// 	tableSimple,
+		// 	tableComplex,
+		// 	tableComplexest
+		// },
 		data (){
 			return {
-				formInline: {
-		          user: '',
-		          region: '',
-		          age:''
-		        }
+				// formInline: {
+		  //         user: '',
+		  //         region: '',
+		  //         age:''
+		  //       }
 			}
 		},
 		methods:{

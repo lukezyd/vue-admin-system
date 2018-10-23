@@ -2,13 +2,17 @@
 	<div id="mainChart" style="width:100%;height:100%"></div>
 </template>
 <script>
+	import { chartData } from '@/api/home'
 	export default{
 		data(){
 			return {
-				mainChart:null
+				mainChart:null,
+				catNameList:[],
+				catNumList: []
 			}
 		},
 		mounted(){
+			this.loadData();
 			this.init();
 			var self = this;
 			window.onresize = function(){
@@ -38,7 +42,8 @@
 			            // barWidth:45,
 			            color:["#bfc2cd"],
 			            xAxis: {
-			                data: ["布偶猫","折耳猫","英短猫","波斯猫","短毛猫","蓝猫","挪威猫","缅因猫","埃及猫","美短猫","孟买猫","埃及猫","美短猫","孟买猫"],
+			                // data: ["布偶猫","折耳猫","英短猫","波斯猫","短毛猫","蓝猫","挪威猫","缅因猫","埃及猫","美短猫","孟买猫","埃及猫","美短猫","孟买猫"],
+			                data: this.catNameList,
 			                axisLabel: {
 	                            show: true,
 	                            textStyle: {
@@ -73,13 +78,27 @@
 			            series: [{
 			                name: '点击量',
 			                type: 'bar',
-			                data: [5, 20, 36, 10, 10, 20,10, 20,12,34,45,12,34,45]
+			                data:this.catNumList
+			                // data: [5, 20, 36, 10, 10, 20,10, 20,12,34,45,12,34,45]
 			            }]
 			        };
 			    var id = document.getElementById("mainChart");
 				this.mainChart = echarts.init(id);
 				this.mainChart.setOption(options);
+			},
+
+			loadData: function(){
+				chartData().then(response => {
+					if(response.code == 200){
+						this.catNumList = response.name;
+						this.catNumList = response.num;
+					}else{
+						console.log(response);
+					}
+				},error => {
+					console.log(error);
+				});
 			}
 		}
-	}
+	};
 </script>

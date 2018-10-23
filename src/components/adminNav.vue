@@ -1,7 +1,7 @@
 <template>
 	<div class="nav-box" v-bind:class="navLocaltion">
    		<div class="nav">
-		    <el-menu
+		    <!-- <el-menu
 		      default-active="1"
 		      @open="handleOpen"
 		      @close="handleClose"
@@ -30,14 +30,19 @@
 		        <i class="fa fa-dashboard"></i>
 		        <span slot="title">导航四</span>
 		      </el-menu-item>
-		    </el-menu>
+		    </el-menu> -->
+		    <side-bar></side-bar>
 		</div>
  	</div>
 </template>
 
 <script>
+	import sideBar from './sideBar/index'
 	export default{
 		name :"adminNav",
+		components:{
+			sideBar
+		},
 		data(){
 			return {
 				navshow:true,
@@ -55,17 +60,12 @@
 				this.navStatus =  !this.navStatus;
 				this.$emit("navToggle",self.navStatus);
 			},
-			handleOpen: function(){
-
-			},
-			handleClose: function(){
-
-			},
+			
 			toPage: function(path){
 				this.$router.push(path);
 			}
 		}
-	}
+	};
 </script>
 	
 <style>
