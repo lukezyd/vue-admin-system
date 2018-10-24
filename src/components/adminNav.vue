@@ -69,7 +69,6 @@
 </script>
 	
 <style>
-
 .nav-box{
   background: #2a3542;
   position: relative;

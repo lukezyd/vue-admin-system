@@ -10,17 +10,16 @@
       active-text-color="#409EFF"
     > -->
     <el-menu
-      default-active="1"
-      @open="handleOpen"
-      @close="handleClose"
-    >
-      <nav-item v-for="(route,index) in navList" :key="route.text" :index="String(index + 1)" :item="route" :base-path="route.path"></nav-item>
+          default-active="1"
+          @open="handleOpen"
+          @close="handleClose"
+         >
+      <nav-item v-for="(route,index) in navList"  data-item="route.basePath" :key="route.text" :index="route.basePath" :item="route" :base-path="route.path"></nav-item>
     </el-menu>
   </el-scrollbar>
 </template>
 
 <script>
-
 import navItem from './navitem'
 export default {
   data() {

@@ -83,11 +83,10 @@
 		},
 		beforeDestroy () {
 		},
-	}
+	};
 </script>
 
 <style>
-
 .rank-number{
     padding: 3px 15px;
     background: #ddd;
@@ -99,7 +98,7 @@
     font-size: 14px;
     color:#fff;
 }
-.color01{
+/*.color01{
 	background: #88d6de;
 }
 .color02{
@@ -113,5 +112,5 @@
 }
 .color05{
 	background: #88d6de;
-}
+}*/
 </style>

@@ -151,7 +151,7 @@
 				}
 			}
 		}
-	}
+	};
 </script>
 <style>
 .otherChart-top{
@@ -171,7 +171,6 @@
 		height: 40px;
 		background: #e56155;
 	}
-
 	.otherChart-top__menu{
 		height: 60px;
 		background: #e6e7ec;

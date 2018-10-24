@@ -89,9 +89,13 @@
 
 			loadData: function(){
 				chartData().then(response => {
+					console.log(response)
 					if(response.code == 200){
-						this.catNumList = response.name;
-						this.catNumList = response.num;
+						this.catNameList = response.catChart.cname;
+						this.catNumList = response.catChart.num;
+
+						console.log(this.catNameList);
+						console.log(this.catNumList);
 					}else{
 						console.log(response);
 					}

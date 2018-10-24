@@ -7,7 +7,11 @@ console.log(loginAPI.logoutFn)
 // 登录相关
 Mock.mock('/isLogin', 'post', loginAPI.loginFn);
 Mock.mock('/logout', 'post', loginAPI.logoutFn);
-Mock.mock('/catList','post',homeApi.catList);
+
+// 首页
+Mock.mock('/firstData','post',homeApi.firstData);
+Mock.mock('/chartData','post',homeApi.chartData);
+Mock.mock('/sumData','post',homeApi.sumData);
 
 
 export default Mock
