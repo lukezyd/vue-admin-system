@@ -143,11 +143,8 @@
 				var otherChart01 = echarts.init(document.getElementById("otherChart01"));
 				otherChart01.setOption(sideChartOption01);
 
-				// var otherChart02 = echarts.init(document.getElementById("otherChart02"));
-				// otherChart02.setOption(sideChartOption02);
-
 				window.onresize = function(){
-					otherChart02.resize();
+					otherChart01.resize();
 				}
 			}
 		}

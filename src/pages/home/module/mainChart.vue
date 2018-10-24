@@ -13,11 +13,14 @@
 		},
 		mounted(){
 			this.loadData();
-			this.init();
-			var self = this;
-			window.onresize = function(){
-				self.mainChart.resize();
-			}	
+		},
+		created(){
+			this.$nextTick( () => {
+				var self = this;
+				window.onresize = function(){
+					self.mainChart.resize();
+				}	
+			})
 		},
 		methods:{
 			init: function() {
@@ -94,8 +97,7 @@
 						this.catNameList = response.catChart.cname;
 						this.catNumList = response.catChart.num;
 
-						console.log(this.catNameList);
-						console.log(this.catNumList);
+						this.init();
 					}else{
 						console.log(response);
 					}

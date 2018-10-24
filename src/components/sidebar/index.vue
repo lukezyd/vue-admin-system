@@ -14,7 +14,7 @@
           @open="handleOpen"
           @close="handleClose"
          >
-      <nav-item v-for="(route,index) in navList"  data-item="route.basePath" :key="route.text" :index="route.basePath" :item="route" :base-path="route.path"></nav-item>
+      <nav-item v-for="(route,index) in navList"  data-item="route.basePath" :key="route.text" :index="String(index+1)" :item="route" :base-path="route.path"></nav-item>
     </el-menu>
   </el-scrollbar>
 </template>

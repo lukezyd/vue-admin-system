@@ -6,9 +6,18 @@
 </template>
 <script>
 	export default{
+		data() {
+			return {
+				sideChart01:'',
+				sideChart02:''
+			}
+		},
 		mounted(){
 			this.init();
 		},
+		created(){
+
+		},	
 		methods:{
 			init: function() {
 				var sideChartOption01 = {
@@ -97,16 +106,18 @@
 							    type: 'bar'
 							}]
 			        };
-				var sideChart01 = echarts.init(document.getElementById("sideChart01"));
-				sideChart01.setOption(sideChartOption01);
+				self.sideChart01 = echarts.init(document.getElementById("sideChart01"));
+				self.sideChart01.setOption(sideChartOption01);
 
-				var sideChart02 = echarts.init(document.getElementById("sideChart02"));
-				sideChart02.setOption(sideChartOption02);
+				self.sideChart02 = echarts.init(document.getElementById("sideChart02"));
+				self.sideChart02.setOption(sideChartOption02);
 
-				window.onresize = function(){
-					sideChart01.resize();
-					sideChart02.resize();
-				}
+				this.$nextTick( () => {
+					window.onresize = function(){
+						self.sideChart01.resize();
+						self.sideChart02.resize();
+					}
+				});
 			}
 		}
 	}
