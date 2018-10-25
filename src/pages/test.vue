@@ -1,103 +1,167 @@
 <template>
-	<div class="test">
-		<!-- <zselect class="select-demo"
-				:lists="lists" 
-				:selectStyle="selectStyle" 
-				:showSearch="showSearch" 
-				:defaultText="defaultText" 
-				:defaultId="defaultId">
-		</zselect>	 -->
-
-		<!-- <z-alert v-show="showa" :alertType="alertType" :msgMain="msgMain" :title="title" :autoClose="autoClose"> -->
-			<!-- <div slot="alertMain"><i class="fa fa-warning"></i>it is a error tips</div> -->
-		<!-- </z-alert> -->
-
-		<!-- <v-input class="input-test" :defaultVlaue="defaultVlaue" :placeholder="placeholder"></v-input> -->
-		<!-- <zcheckbox  :ischecked="checked"> -->
-			<!-- wqqtq -->
-		<!-- </zcheckbox> -->
-
-		<input type="button" @click="change" value="change">
-		<p>{{num}}</p>
-	</div>
+	<div class="nav-box" v-bind:class="navLocaltion">
+   		<div class="nav">
+		    <!-- <el-menu
+		      default-active="1"
+		      @open="handleOpen"
+		      @close="handleClose"
+		     >
+		     <el-menu-item index="1" @click="toPage('/')">
+		        <i class="fa fa-dashboard"></i>
+		        <span slot="title">首页</span>
+		      </el-menu-item>
+		      <el-submenu index="2">
+		        <template slot="title">
+		          <i class="fa fa-dashboard"></i>
+		          <span>表格</span>
+		        </template>
+		        <el-menu-item-group>
+		          <el-menu-item index="1-1" @click="toPage('/primaryTable')" >初级表格</el-menu-item>
+		          <el-menu-item index="1-2" @click="toPage('/secTable')">中级表格</el-menu-item>
+		          <el-menu-item index="1-3" @click="toPage('/seniorTable')">高级表格</el-menu-item>
+		        </el-menu-item-group>
+		      </el-submenu>
+		      
+		      <el-menu-item index="3" >
+		        <i class="fa fa-dashboard"></i>
+		        <span slot="title">表单</span>
+		      </el-menu-item>
+		      <el-menu-item index="4">
+		        <i class="fa fa-dashboard"></i>
+		        <span slot="title">导航四</span>
+		      </el-menu-item>
+		    </el-menu> -->
+		    <side-bar></side-bar>
+		</div>
+ 	</div>
 </template>
+
 <script>
-	// import TWEEN from 'tween.js'
+	import sideBar from '@/components/sideBar/index'
 	export default{
-		name:"test",
-		data (){
+		name :"adminNav",
+		components:{
+			sideBar
+		},
+		data(){
 			return {
-				listData:[
-					{id:1,text:"aaaaaa"},
-					{id:2,text:"bbbbbb"},
-					{id:3,text:"cccccc"},
-					{id:4,text:"dddddd"}
-				],
-				defaultText:"default text",
-				defaultId:"default id",
-				lists:[
-					{id:1,text:"aaaaaa"},
-					{id:2,text:"bbb325bbb"},
-					{id:3,text:"cccc235cc"},
-					{id:4,text:"dd124dddfgjd"},
-					{id:5,text:"eeefgj769eee"},
-					{id:6,text:"ffdfaf23fsghdfff"},
-					{id:7,text:"gg124gggg"},
-					{id:8,text:"hhh34325h56hhh"},
-					{id:9,text:"ddddd47d"},
-					{id:10,text:"iiiii325ii"},
-					{id:11,text:"jjjjj325jj"},
-					{id:12,text:"kkkkk35kkkk"},
-					{id:13,text:"llllllll"}
-				],
-				showSearch:true,
-				selectStyle:{
-					vicon:{
-						color:"red"
-					}
-				},
-				title:"错误:",
-				checkboxText:"测试checkbox",
-				autoClose:true,
-				showa:false,
-				alertType:"error",
-				msgMain:"this is a test alert,this is a test alert,this is a test alert",
-				defaultVlaue:'defaultVlaue',
-				placeholder:"请输入",
-				checked:false,
-				num:124
+				navshow:true,
+				authorityList: [],
+				navLocaltion:"nav-left"
 			}
 		},
-		mounted(){
-			this.add();
+		created:function(){
+			//应从后台获取
+			// this.authorityList  = ["page01","page02","page03","page04","page05"];
 		},
 		methods:{
-			change: function(){
-				// this.showa = ! this.showa;
-				this.add();
+			toggleNav:function(){
+				var self = this;
+				this.navStatus =  !this.navStatus;
+				this.$emit("navToggle",self.navStatus);
 			},
-			add:function(){
-				if(this.num < 200){
-					this.num++;
-					requestAnimationFrame(this.add);
-				}
-				// TWEEN.update();
-			},
-			numChange: function(){
-				// var self = this;
-				// new TWEEN.Tween(this.num).to().start();
-				this.add();
+			
+			toPage: function(path){
+				this.$router.push(path);
 			}
 		}
-	}
+	};
 </script>
+	
+<style>
 
-<style type="text/css">
-	.input-test{
-		margin-top: 100px;
-	}
+.nav-box{
+  background: #2a3542;
+  position: relative;
+  width:210px;
+}
+.nav-left{
+  float: left;
+  max-width: 350px;
+  height: calc(100% - 60px);
+  overflow: hidden;
+  z-index: 999;
+}
+.nav-top{
+  height: 60px;
+  width: 100%;
+}
+.nav-icon{
+  margin-left: -15%;
+}
+.nav-icon .nav-toggle{
+  margin-right: 14px;
+}
 
-	.select-demo{
-		width: 200px;
-	}
+.nav{
+  width: 190px;
+  margin: 0 auto;
+}
+.nav-toggle{
+	float: right;
+	padding: 10px;
+	cursor: pointer;
+}
+.el-icon-menu{
+	color:#fff;
+	font-size: 26px;
+}
+.nav ul{
+	clear: both;
+	padding: 20px 0;
+	width:100%;
+	background: #2a3542;
+	border-right: none;
+	color:#fff;
+}
+.nav li{
+	line-height: 45px;
+	color:#fff;
+	cursor: pointer;
+	text-align: left;
+    margin-bottom: 15px;
+    font-size: 14px;
+    position: relative;
+}
+.nav li .el-submenu__title{
+	color:#fff;
+}
+.nav .el-menu-item{
+	border-radius: 3px;
+	height: 45px;
+}
+.nav .el-submenu .el-submenu__title{
+	height: 45px;
+	line-height: 45px;
+	border-radius: 3px;
+}
+.nav .el-submenu .el-submenu__title:hover{
+	background: #7fced2;
+	color:#fff;
+}
+.nav .el-submenu .el-submenu__title:hover .fa{
+	color:#fff;
+}
+.nav .el-menu-item.is-active{
+	background: #7fced2;
+	color:#fff;
+}
+
+.nav .el-menu-item:hover{
+	background: #7fced2;
+	color:#fff;
+}
+.nav .el-menu-item:hover .fa{ 
+	color:#fff;
+}
+.el-menu-item-group ul{
+	padding: 0;
+}
+.el-menu-item-group li{
+	margin-bottom:10px;
+}
+.nav .el-submenu ul{
+	padding: 0;
+}
+.nav li .fa{margin:0px 10px;}
 </style>

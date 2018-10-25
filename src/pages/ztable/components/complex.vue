@@ -61,6 +61,7 @@
       </template>
     </el-table-column>
     <el-table-column
+      width="180"
       label="操作"
       >
      <template slot-scope="scope">

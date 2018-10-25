@@ -14,14 +14,6 @@
 		mounted(){
 			this.loadData();
 		},
-		created(){
-			this.$nextTick( () => {
-				var self = this;
-				window.onresize = function(){
-					self.mainChart.resize();
-				}	
-			})
-		},
 		methods:{
 			init: function() {
 				var options = {
@@ -42,10 +34,9 @@
 			            		color:'#e85858'
 			            	}
 			            },
-			            // barWidth:45,
+			            barWidth:40,
 			            color:["#bfc2cd"],
 			            xAxis: {
-			                // data: ["布偶猫","折耳猫","英短猫","波斯猫","短毛猫","蓝猫","挪威猫","缅因猫","埃及猫","美短猫","孟买猫","埃及猫","美短猫","孟买猫"],
 			                data: this.catNameList,
 			                axisLabel: {
 	                            show: true,
@@ -88,6 +79,10 @@
 			    var id = document.getElementById("mainChart");
 				this.mainChart = echarts.init(id);
 				this.mainChart.setOption(options);
+
+				window.onresize = () =>{
+					this.mainChart.resize();
+				}
 			},
 
 			loadData: function(){

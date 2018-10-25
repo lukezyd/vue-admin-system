@@ -1,33 +1,19 @@
 <template>
-	<div class="crumbs" v-show="showCrumbs">
+	<div class="crumbs" >
 		<div class="crumbs-box">
 			<el-breadcrumb separator="/">
-			  <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+			  <el-breadcrumb-item  v-for="(item, index) in pathList" v-if="item.text" :key="index" :to="{ path: '/' }">{{item.text}}</el-breadcrumb-item>
 			</el-breadcrumb>
 		</div>
 	</div>
 </template>
 
 <script>
-	export default{
-		name:"crumbs",
-		props:{
-			cList:{
-				type:Array
-			},
-			showCrumbs:{
-				type:Boolean
-			}
-		},
-		data (){
-			return{
-
-			}
-		},
-		methods:{
-			
-		}
-	};
+import crumbLists from './index'
+export default{
+	name:"crumbs",
+	mixins:[crumbLists]
+};
 </script>
 
 <style>

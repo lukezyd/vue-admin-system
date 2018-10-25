@@ -92,13 +92,13 @@
 </script>
 <style >
 	.login-bg{width: 100%;height: 100%;overflow: hidden;
-		background: url(/static/images/login.jpg) no-repeat;background-size: 100% 100%;
+		/*background: url(/static/images/login.jpg) no-repeat;background-size: 100% 100%;*/
 	}
 	.login{
 		padding: 20px 0;
 		width: 470px;
 		right:20px;
-		height:370px;background:rgba(90, 90, 90, 0.8);position: absolute;top: 30%;
+		/*height:370px;background:rgba(90, 90, 90, 0.8);position: absolute;top: 30%;*/
 	}
 	.login-content{
 		padding: 15px 70px;

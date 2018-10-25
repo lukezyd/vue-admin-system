@@ -3,6 +3,7 @@
       <admin-header></admin-header>
       <admin-nav @navToggle="navToggles"></admin-nav>
       <div class="main-page">
+        <crumbs></crumbs>
         <router-view></router-view>
       </div>
       <div class="footer">
@@ -14,7 +15,7 @@
 <script>
 import adminNav from "../components/adminNav"
 import adminHeader from "../components/adminHeader"
-import crumbs from "../components/crumbs"
+import crumbs from "../components/crumbs/crumbs"
 export default {
   name: 'mainPage',
   components:{
@@ -50,14 +51,13 @@ export default {
         }
       }
     }
-}
-
+};
 </script>
 
 <style>
 .main-page{
   overflow: auto;
-  height: calc(100% - 100px);
+  height: calc(100% - 90px);
 }
 
 .footer{

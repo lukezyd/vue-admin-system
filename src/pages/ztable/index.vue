@@ -1,51 +1,41 @@
 <template>
 	<div class="ztable">
-		<div class="breadcrumb">
+		<!-- <div class="breadcrumb">
 			<el-breadcrumb separator="/">
 			  <el-breadcrumb-item :to="{ path: '/index' }">表格</el-breadcrumb-item>
 			  <el-breadcrumb-item :to="{ path: '/index' }">选项一</el-breadcrumb-item>
 			</el-breadcrumb>
-		</div>
+		</div> -->
 		<div class="ztable-search">
 			<table-search></table-search>
 		</div>
 		<div class="ztable-main">
-			<!-- <table-simple></table-simple>
-			<table-complex></table-complex>
-			<table-complexest></table-complexest> -->
 			<router-view></router-view>
 		</div>
 	</div>
 </template>
 <script>
-	// import tableSearch from './components/search'
-	// import tableSimple from './components/simple'
-	// import tableComplex from './components/complex'
-	// import tableComplexest from './components/complex-est'
-
+	import tableSearch from './components/search'
+	import crumbs from "@/components/crumbs/crumbs"
 	export default {
 		name:'ztable',
-		// components:{
-		// 	tableSearch,
-		// 	tableSimple,
-		// 	tableComplex,
-		// 	tableComplexest
-		// },
 		data (){
 			return {
-				// formInline: {
-		  //         user: '',
-		  //         region: '',
-		  //         age:''
-		  //       }
 			}
+		},
+		components:{
+			tableSearch,
+		},
+		beforeRouteUpdate (to, from, next){
+			// console.log(to);
+			next();
 		},
 		methods:{
 			onSubmit: function(){
 
 			}
 		}
-	}
+	};
 </script>
 <style>
 	.ztable-main{

@@ -15,8 +15,7 @@ export default {
       crumbsList:['首页']
     }
   }
-}
-
+};
 </script>
 
 <style lang="scss">
