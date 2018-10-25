@@ -1,10 +1,10 @@
 <template>
 	<div class="zHome clearfix">
-		<div class="breadcrumb">
+		<!-- <div class="breadcrumb">
 			<el-breadcrumb separator="/">
 			  <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
 			</el-breadcrumb>
-		</div>
+		</div> -->
 		<div class="zHome-datasum clearfix" >
 			<sum-data></sum-data>
 		</div>

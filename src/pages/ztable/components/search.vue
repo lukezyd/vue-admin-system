@@ -54,7 +54,8 @@
 		},
 		watch:{
 			showMore: function(){
-				this.showMore ? '收起' : '高级查询';
+				console.log(this.showMore)
+				this.showMore ? this.showText = '收起' : this.showText =  '高级查询';
 			}
 		},
 		methods:{
@@ -87,5 +88,9 @@
 	.el-button{
 		height: 34px;
 		line-height: 0;
+	}
+
+	.more-search{
+		margin-top: 15px;
 	}
 </style>

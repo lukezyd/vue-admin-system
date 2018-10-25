@@ -147,6 +147,9 @@
 					otherChart01.resize();
 				}
 			}
+		},
+		brforeDestory(){
+			this.otherChart01.dispose();
 		}
 	};
 </script>

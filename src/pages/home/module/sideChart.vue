@@ -112,13 +112,15 @@
 				self.sideChart02 = echarts.init(document.getElementById("sideChart02"));
 				self.sideChart02.setOption(sideChartOption02);
 
-				this.$nextTick( () => {
-					window.onresize = function(){
-						self.sideChart01.resize();
-						self.sideChart02.resize();
-					}
-				});
+				window.onresize = function(){
+					self.sideChart01.resize();
+					self.sideChart02.resize();
+				}
 			}
+		},
+		brforeDestory(){
+			this.sideChart01.dispose();
+			this.sideChart02.dispose();
 		}
 	}
 </script>

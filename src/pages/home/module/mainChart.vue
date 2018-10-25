@@ -100,6 +100,9 @@
 					console.log(error);
 				});
 			}
+		},
+		brforeDestory(){
+			this.mainChart.dispose();
 		}
 	};
 </script>

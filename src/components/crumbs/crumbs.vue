@@ -2,7 +2,11 @@
 	<div class="crumbs" >
 		<div class="crumbs-box">
 			<el-breadcrumb separator="/">
-			  <el-breadcrumb-item  v-for="(item, index) in pathList" v-if="item.text" :key="index" :to="{ path: '/' }">{{item.text}}</el-breadcrumb-item>
+			  <el-breadcrumb-item  v-for="(item, index) in pathList" v-if="item.text" :key="index" :to="item.basePath ? {path:item.basePath} : ''">
+			  	<!-- <a v-if="item.basePath" :href="item.basePath">{{item.text}}</a> -->
+			  	<!-- <span v-else>{{item.text}}</span> -->
+			  	{{item.text}}
+			  </el-breadcrumb-item>
 			</el-breadcrumb>
 		</div>
 	</div>
@@ -20,9 +24,13 @@ export default{
 	.crumbs{
 		position: relative;
 		background-color: #fff;
-		height: 35px;
+		height: 40px;
 		border-bottom: 1px solid #ddd;
 		padding: 0 20px;
+	}
+	.crumbs-box{
+		height: 100%;overflow: hidden;
+		padding: 0 12px;
 	}
 	.crumbs-box li{
 		float: left;

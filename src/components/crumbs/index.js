@@ -9,19 +9,31 @@ const changeCrumbs ={
 	data(){
 		return {
 			_pathList:'',
-			pathList:[]
+			pathList:[{
+					text:'首页',
+					basePath:'/'
+				}]
 		}
 	},
 	methods:{
 		getPath: function(to) {
-			this._pathList = to.split('/');
-			for(var i=0;i < this._pathList.length;i++){
-				var val = this._pathList[i];
+			if(to === "/"){
 				this.pathList.push({
-					text:crumbsMap[val]
+					text:'首页',
+					basePath:'/'
 				});
+			}else{
+				this._pathList = to.split('/');
+				for(var i=0;i < this._pathList.length;i++){
+					var val = this._pathList[i];
+					this.pathList.push({
+						text:crumbsMap[val]
+					});
+				}
+				this.pathList[this._pathList.length - 1].basePath = to;
+
+				console.log(this.pathList)
 			}
-			console.log(this.pathList);
 		}
 	},
 	watch:{

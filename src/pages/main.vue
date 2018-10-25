@@ -2,8 +2,8 @@
   <div id="app">
       <admin-header></admin-header>
       <admin-nav @navToggle="navToggles"></admin-nav>
+      <crumbs></crumbs>
       <div class="main-page">
-        <crumbs></crumbs>
         <router-view></router-view>
       </div>
       <div class="footer">
@@ -57,7 +57,7 @@ export default {
 <style>
 .main-page{
   overflow: auto;
-  height: calc(100% - 90px);
+  height: calc(100% - 100px);
 }
 
 .footer{
