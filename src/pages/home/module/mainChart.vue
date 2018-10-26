@@ -13,6 +13,7 @@
 		},
 		mounted(){
 			this.loadData();
+			window.addEventListener('resize',this.resizeChart,false);
 		},
 		methods:{
 			init: function() {
@@ -77,14 +78,17 @@
 			            }]
 			        };
 			    var id = document.getElementById("mainChart");
-				this.mainChart = echarts.init(id);
+				this.mainChart = this.echarts.init(id);
 				this.mainChart.setOption(options);
-
-				window.onresize = () =>{
-					this.mainChart.resize();
-				}
+				this.$nextTick(() => {
+					window.onresize = () => {
+						this.mainChart.resize();
+					}
+				});
 			},
-
+			resizeChart: function(){
+				this.mainChart.resize();
+			},
 			loadData: function(){
 				chartData().then(response => {
 					if(response.code == 200){
@@ -101,6 +105,7 @@
 		},
 		brforeDestory(){
 			this.mainChart.dispose();
+			window.removeEventListener('resize',this.resizeChart);
 		}
 	};
 </script>

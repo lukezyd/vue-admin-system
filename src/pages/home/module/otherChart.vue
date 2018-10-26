@@ -31,125 +31,84 @@
 	export default{
 		data(){
 			return {
-				
+				otherChart:null
 			}
 		},
 		mounted(){
 			this.init();
+			window.addEventListener('resize',this.resizeChart,false);
 		},
 		methods:{
 			init: function() {
-				var sideChartOption01 =  {
-							 tooltip : {
-							        trigger: 'item',
-							        formatter: "{a} <br/>{b} : {c} ({d}%)"
-							    },
-							    visualMap: {
-							        show: false,
-							        min: 80,
-							        max: 600,
-							        inRange: {
-							            colorLightness: [0, 1.2]
-							        }
-							    },
-							    series : [
-							        {
-							            name:'访问来源',
-							            type:'pie',
-							            radius : '75%',
-							            center: ['50%', '50%'],
-							            data:[
-							                {value:335, name:'直接访问'},
-							                {value:310, name:'邮件营销'},
-							                {value:274, name:'联盟广告'},
-							                {value:235, name:'视频广告'},
-							                {value:400, name:'搜索引擎'}
-							            ].sort(function (a, b) { return a.value - b.value; }),
-							            roseType: 'radius',
-							            label: {
-							                normal: {
-							                    textStyle: {
-							                        color: '#ff6c60'
-							                    }
-							                }
-							            },
-							            labelLine: {
-							                normal: {
-							                    lineStyle: {
-							                        color: '#ff6c60'
-							                    },
-							                    smooth: 0.2,
-							                    length: 10,
-							                    length2: 20
-							                }
-							            },
-							            itemStyle: {
-							                normal: {
-							                    color: '#c23531',
-							                }
-							            },
-							            animationType: 'scale',
-							            animationEasing: 'elasticOut',
-							            animationDelay: function (idx) {
-							                return Math.random() * 200;
-							            }
-							        }
-							      ]
-							};
-			     	var sideChartOption02 = {
-							title:{
-								text:"this week",
-								textStyle:{
-									color:"#fff"
-								}
-							},
-							tooltip:{
-				            	show:true
-				            },
-							grid:{
-				            	left:50,
-				            	top:35,
-				            	right:50,
-				            	bottom:20
-				            },
-				            barWidth:20,
-				            itemStyle:{
-				            	barBorderRadius:[3,3,0,0]
-				            },
-							xAxis: {
-							    type: 'category',
-							    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-							     axisLabel:{
-							    	textStyle:{
-							    		color:"#fff"
-							    	}
-							    },
-							    axisLine:{
-							    	lineStyle:{
-							    		color:"#fff"
-							    	}
-							    }
-							},
-							yAxis: {
-							    type: 'value',
-							    show:false
-							},
-							color:["#fff"],
-							series: [{
-							    data: [120, 200, 150, 80, 70, 110, 130, 150, 80, 70, 110, 130],
-							    type: 'bar'
-							}]
-			        };
-				var otherChart01 = echarts.init(document.getElementById("otherChart01"));
-				otherChart01.setOption(sideChartOption01);
+				var otherChartOption =  {
+					 tooltip : {
+					        trigger: 'item',
+					        formatter: "{a} <br/>{b} : {c} ({d}%)"
+					    },
+					    visualMap: {
+					        show: false,
+					        min: 80,
+					        max: 600,
+					        inRange: {
+					            colorLightness: [0, 1.2]
+					        }
+					    },
+					    series : [
+					        {
+					            name:'访问来源',
+					            type:'pie',
+					            radius : '75%',
+					            center: ['50%', '50%'],
+					            data:[
+					                {value:335, name:'直接访问'},
+					                {value:310, name:'邮件营销'},
+					                {value:274, name:'联盟广告'},
+					                {value:235, name:'视频广告'},
+					                {value:400, name:'搜索引擎'}
+					            ].sort(function (a, b) { return a.value - b.value; }),
+					            roseType: 'radius',
+					            label: {
+					                normal: {
+					                    textStyle: {
+					                        color: '#ff6c60'
+					                    }
+					                }
+					            },
+					            labelLine: {
+					                normal: {
+					                    lineStyle: {
+					                        color: '#ff6c60'
+					                    },
+					                    smooth: 0.2,
+					                    length: 10,
+					                    length2: 20
+					                }
+					            },
+					            itemStyle: {
+					                normal: {
+					                    color: '#c23531',
+					                }
+					            },
+					            animationType: 'scale',
+					            animationEasing: 'elasticOut',
+					            animationDelay: function (idx) {
+					                return Math.random() * 200;
+					            }
+					        }
+					      ]
+					};
+			    
+				this.otherChart = this.echarts.init(document.getElementById("otherChart01"));
+				this.otherChart.setOption(otherChartOption);
 
-				window.onresize = function(){
-					otherChart01.resize();
-				}
-			}
+			},
+			resizeChart: function(){
+				this.otherChart.resize();
+			},
 		},
 		brforeDestory(){
-			this.otherChart01.dispose();
+			this.otherChart.dispose();
+			window.removeEventListener('resize',this.resizeChart);
 		}
 	};
 </script>

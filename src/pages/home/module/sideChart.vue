@@ -14,10 +14,9 @@
 		},
 		mounted(){
 			this.init();
-		},
-		created(){
 
-		},	
+			window.addEventListener('resize',this.resizeChart,false);
+		},
 		methods:{
 			init: function() {
 				var sideChartOption01 = {
@@ -78,7 +77,7 @@
 				            	right:50,
 				            	bottom:20
 				            },
-				            barWidth:20,
+				            // barWidth:20,
 				            itemStyle:{
 				            	barBorderRadius:[3,3,0,0]
 				            },
@@ -106,21 +105,22 @@
 							    type: 'bar'
 							}]
 			        };
-				self.sideChart01 = echarts.init(document.getElementById("sideChart01"));
-				self.sideChart01.setOption(sideChartOption01);
+				this.sideChart01 = this.echarts.init(document.getElementById("sideChart01"));
+				this.sideChart01.setOption(sideChartOption01);
 
-				self.sideChart02 = echarts.init(document.getElementById("sideChart02"));
-				self.sideChart02.setOption(sideChartOption02);
+				this.sideChart02 = this.echarts.init(document.getElementById("sideChart02"));
+				this.sideChart02.setOption(sideChartOption02);
 
-				window.onresize = function(){
-					self.sideChart01.resize();
-					self.sideChart02.resize();
-				}
+			},
+			resizeChart: function(){
+				this.sideChart01.resize();
+				this.sideChart02.resize();
 			}
 		},
 		brforeDestory(){
 			this.sideChart01.dispose();
 			this.sideChart02.dispose();
+			window.removeEventListener('resize',this.resizeChart);
 		}
 	}
 </script>
