@@ -20,8 +20,8 @@ export default {
 
 <style lang="scss">
 $--color-primary: #81b38a;
-*{padding: 0;margin:0;box-sizing: border-box;}
-.btn{outline: none;}
+// *{padding: 0;margin:0;box-sizing: border-box;}
+// .btn{outline: none;}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

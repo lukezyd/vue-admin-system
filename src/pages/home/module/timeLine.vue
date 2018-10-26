@@ -2,8 +2,8 @@
 	<div class="time-line">
 		<div class="panel-body">
           <div class="text-center mbot30">
-              <h3 class="timeline-title">Timeline</h3>
-              <p class="t-info">This is a project timeline</p>
+              <h3 class="timeline-title">时间轴</h3>
+              <p class="t-info">大事记</p>
           </div>
 
           <div class="timeline">
@@ -101,10 +101,9 @@
 <script>
 	export default{
 		
-	}
+	};
 </script>
 <style>
-
 .panel-body {
     padding: 15px;
 }
@@ -116,7 +115,6 @@
     table-layout: fixed;
     width: 100%;
 }
-
 .timeline:before {
     background-color: #C7CBD6;
     bottom: 0px;

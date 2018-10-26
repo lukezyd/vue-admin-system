@@ -1,44 +1,38 @@
 const crumbsMap = {
 	'ztable':'表格',
-	'primary':'初级表格',
-	'second':'中级表格',
-	'senior':'高级表格'
+	'primary':'初级',
+	'second':'中级',
+	'senior':'高级'
 };
-
+console.log(crumbsMap)
 const changeCrumbs ={
 	data(){
 		return {
 			_pathList:'',
-			pathList:[{
-					text:'首页',
-					basePath:'/'
-				}]
+			pathList:[]
 		}
+	},
+	created(){
+		var currentPath = this.$route.fullPath;
+		this.getPath(currentPath);
 	},
 	methods:{
 		getPath: function(to) {
-			if(to === "/"){
+			this._pathList = to.split('/');
+			for(var i=0;i < this._pathList.length;i++){
+				var val = this._pathList[i];
 				this.pathList.push({
-					text:'首页',
-					basePath:'/'
+					text:crumbsMap[val]
 				});
-			}else{
-				this._pathList = to.split('/');
-				for(var i=0;i < this._pathList.length;i++){
-					var val = this._pathList[i];
-					this.pathList.push({
-						text:crumbsMap[val]
-					});
-				}
-				this.pathList[this._pathList.length - 1].basePath = to;
-
-				console.log(this.pathList)
 			}
 		}
 	},
 	watch:{
 		$route: function(to){
-			this.pathList = [];
+			this.pathList = [{
+					text:'首页',
+					basePath:{path:'/'}
+				}];
 			this._pathList = '';
 			this.getPath(to.fullPath);
 		}

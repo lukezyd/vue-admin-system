@@ -1,12 +1,12 @@
 <template>
 	<div>
-		<el-submenu v-if="item.children" :index="index">
+		<el-submenu v-if="item.children" :index="subIndex">
 			<template slot="title">
 				<i class="fa fa-dashboard"></i>	
 				<span>{{item.text}} </span>
 			</template>
 			<el-menu-item-group>
-				<el-menu-item v-for="(child,childIndex) in item.children"  :key="child.text" :index="index+'-'+childIndex" @click="toPage(child.basePath)" >{{child.text}}</el-menu-item>
+				<el-menu-item v-for="(child,childIndex) in item.children"  :key="child.text" :index="child.basePath" @click="toPage(child.basePath)" >{{child.text}}</el-menu-item>
 			</el-menu-item-group>
 		</el-submenu>
 		<el-menu-item v-else :index="index"  @click="toPage(item.basePath)">
@@ -19,7 +19,8 @@
 	export default{
 		props:{
 			item:{},
-			index:{}
+			index:{},
+			subIndex:{}
 		},
 		data(){
 			return {

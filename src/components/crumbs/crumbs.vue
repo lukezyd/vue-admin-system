@@ -2,7 +2,7 @@
 	<div class="crumbs" >
 		<div class="crumbs-box">
 			<el-breadcrumb separator="/">
-			  <el-breadcrumb-item  v-for="(item, index) in pathList" v-if="item.text" :key="index" :to="item.basePath ? {path:item.basePath} : ''">
+			  <el-breadcrumb-item  v-for="(item, index) in pathList" v-if="item.text" :key="index" :data-path='JSON.stringify(item.basePath)' :to='item.basePath'>
 			  	<!-- <a v-if="item.basePath" :href="item.basePath">{{item.text}}</a> -->
 			  	<!-- <span v-else>{{item.text}}</span> -->
 			  	{{item.text}}

@@ -1,8 +1,15 @@
 <template>
-	<div class=""></div>
+	<div class="zform">
+		<router-view></router-view>
+	</div>
 </template>
 <script>
-	export default{
-		
-	};
+ export default {
+
+ };
 </script>
+<style>
+	.zform{
+		padding:20px;
+	}
+</style>

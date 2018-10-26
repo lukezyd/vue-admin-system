@@ -4,7 +4,8 @@ import axios from 'axios'
 import router from './router'
 import store from './store/store'
 import ElementUI from 'element-ui'
-// import './assets/sass/element-variable.scss'
+import './assets/sass/element-variable.scss'
+// import 'element-ui/lib/theme-chalk/index.css'
 import './assets/sass/style.scss'
 
 require('./mock')

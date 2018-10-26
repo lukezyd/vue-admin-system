@@ -7,19 +7,21 @@ const homePage = require("@/pages/home/index");
 const test = require("@/pages/test");
 
 import table from './module/table'
+import formRouter from './module/form'
 // const map = require("../packages/charts/map/map.vue");
 
 const routes = [
-	{path:"/login",component:userLogin},
+	{path:'/login',component:userLogin},
 	{
-		path:"/",
+		path:'/',
 		component:main,
 		children:[
 			{path:'/',component:homePage},
 		]
 	},
 	table,
-	{path:"/test",component:test},
+	formRouter
+	// {path:"/test",component:test},
 	// {path:"/map",component:map}
 ];
 

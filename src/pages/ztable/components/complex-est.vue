@@ -108,7 +108,7 @@
       }
     },
     created(){
-
+      
     },
     methods: {
       handleEdit(index, row) {
