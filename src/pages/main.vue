@@ -1,13 +1,15 @@
 <template>
   <div id="app">
+  <!--   <a href="https://github.com/eidonlon"><img style="position: absolute; top: 0; right: 0; border: 0;z-index: 999;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a> -->
       <admin-header></admin-header>
       <admin-nav @navToggle="navToggles"></admin-nav>
       <crumbs></crumbs>
       <div class="main-page">
         <router-view></router-view>
       </div>
+
       <div class="footer">
-        copyright © 2018-10
+       <p>copyright ©  <span class="github-icon"><a href="https://github.com/eidonlon"><i class="fa fa-github"></i>eidonlon</a></span> 2018-10</p> 
       </div>
   </div>
 </template>
@@ -63,10 +65,18 @@ export default {
 .footer{
   position: absolute;
   width:100%;
-  height:30px;
+  height:40px;
   line-height:40px;
-  background: #393a3c;
-  color:#fff;
+  background: #c5c5c5;
+  color: #353535;
   bottom:0;
+  padding-left: 270px;
 }
+.footer .github-icon{
+  margin:0 10px;
+}
+.footer .github-icon a{
+  color:#ff0000;
+}
+.footer .github-icon .fa{margin:0 3px;}
 </style>

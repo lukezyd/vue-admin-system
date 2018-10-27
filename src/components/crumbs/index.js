@@ -1,4 +1,5 @@
 const crumbsMap = {
+	'home':'首页',
 	'ztable':'表格',
 	'primary':'初级',
 	'second':'中级',
@@ -14,6 +15,7 @@ const changeCrumbs ={
 	},
 	created(){
 		var currentPath = this.$route.fullPath;
+		console.log("is: "+currentPath);
 		this.getPath(currentPath);
 	},
 	methods:{
@@ -29,10 +31,7 @@ const changeCrumbs ={
 	},
 	watch:{
 		$route: function(to){
-			this.pathList = [{
-					text:'首页',
-					basePath:{path:'/'}
-				}];
+			this.pathList = [];
 			this._pathList = '';
 			this.getPath(to.fullPath);
 		}

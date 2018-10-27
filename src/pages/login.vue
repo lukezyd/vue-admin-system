@@ -58,7 +58,7 @@
 							password:self.loginForm.password
 						}).then(function(response){
 							if(response.code == 200){
-								self.$router.push('/');
+								self.$router.push('/home');
 								self.$store.commit('setToken',response.token);
 							}else{
 								self.errorText = response.data.msg;
@@ -98,7 +98,7 @@
 		padding: 20px 0;
 		width: 470px;
 		right:20px;
-		height:370px;background:rgba(90, 90, 90, 0.8);position: absolute;top: 30%;
+		height:370px;position: absolute;top: 30%;
 	}
 	.login-content{
 		padding: 15px 70px;

@@ -13,17 +13,23 @@
 </template>
 <script>
 	import countTo from 'vue-count-to'
+	import { sumData } from '@/api/home'
 	export default {
 		components:{countTo},
 		data() {
 			return {
 				colorList:["#e49393","#88dcef","#84daab","#ddb3de"],
-				sumList:[
-					{icon:"fa-users fa-2x",num:2340,desc:"新增用户"},
-					{icon:"fa-tags fa-2x",num:2340,desc:"新增标签"},
-					{icon:"fa-line-chart fa-2x",num:67500,desc:"累计时长"},
-					{icon:"fa-bar-chart fa-2x",num:6890,desc:"总计"},
-				]
+				sumList:[]
+			}
+		},
+		mounted(){
+			this.loadData();
+		},
+		methods:{
+			loadData: function(){
+				sumData().then((response) => {
+					this.sumList = response;
+				});
 			}
 		}
 	}

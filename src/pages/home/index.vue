@@ -22,16 +22,42 @@
 		</div>
 		<div class="zHome-rank fl">
 			<div class="zHome-rank__head clearfix">
-				<h4 class="fl">周排行榜</h4>
+				<h4 class="fl">本周点击率</h4>
 			</div>
-			<ul>
-				<li v-for="(item,i) in tagList">
-					<span>{{i + 1}}</span>
-					<span>{{item.text}}</span>
-					<span><i class="rank-number" :style="item.style">{{item.num}}</i></span>
-					<span>{{item.chart}}</span>
-				</li>
-			</ul>
+			<div class="rank-table-box">
+				<el-table
+			      :data="tableData"
+			      style="width: 100%">
+			      <el-table-column
+			      type="index"
+			      width="50">
+			    </el-table-column>
+			      <el-table-column
+			        prop="name"
+			        label="猫咪种类"
+			        width="180">
+			      </el-table-column>
+			       <el-table-column
+			        prop="num"
+			        label="数量(只)"
+			        width="180">
+			      </el-table-column>
+			      <el-table-column
+			        label="点击率"
+			        width="180">
+			        <template slot-scope="scope">
+						<span><i class="rank-number" :style="scope.row.style">{{scope.row.clickNum}}</i></span>
+			        </template>
+			      </el-table-column>
+			      <el-table-column
+			        prop="chart"
+			        label="趋势">
+			         <template slot-scope="scope">
+						<div class="small-chart" :id="scope.row.chart.id"></div>
+			        </template>
+			      </el-table-column>
+			    </el-table>
+			</div>
 		</div>
 		<div class="zHome-aside__chart fr">
 			<side-chart></side-chart>
@@ -57,28 +83,69 @@
 			timeLine
 		},
 		data(){
-			return {
-				tagList:[
-					{text:"苹果",num:'23%',chart:"",style:{"background":"#88d6de"}},
-					{text:"苹果",num:'23%',chart:"",style:{"background":"#c8de88"}},
-					{text:"苹果",num:'23%',chart:"",style:{"background":"#deac88"}},
-					{text:"苹果",num:'23%',chart:"",style:{"background":"#88aade"}},
-					{text:"苹果",num:'23%',chart:"",style:{"background":"#a571bf"}},
-					{text:"苹果",num:'23%',chart:"",style:{"background":"#c3c28f"}},
-					{text:"苹果",num:'23%',chart:"",style:{"background":"#4cc361"}},
-					{text:"苹果",num:'23%',chart:"",style:{"background":"#379cbb"}},
-					{text:"苹果",num:'23%',chart:"",style:{"background":"#e65656"}},
+			return { 
+				smallChartData:[],
+				colorList:['#88d6de','#c8de88','#deac88','#88aade','#a571bf','#c3c28f','#4cc361','#379cbb','#e65656'],
+				tableData:[
+					{name:"折耳猫",num:20,clickNum:'23%',chart:{id:'small-chart01',data:[1,2,3,4,5,6,1]},style:{"background":"#88d6de"}},
+					{name:"英短猫",num:10,clickNum:'13%',chart:{id:'small-chart02',data:[3,2,1,2,1,1,7]},style:{"background":"#c8de88"}},
+					{name:"波斯猫",num:3,clickNum:'3%',chart:{id:'small-chart03',data:[1,4,1,5,1,1,1]},style:{"background":"#deac88"}},
+					{name:"布偶猫",num:23,clickNum:'43%',chart:{id:'small-chart04',data:[2,1,6,2,1,1,1]},style:{"background":"#88aade"}},
+					{name:"短毛猫",num:2,clickNum:'11%',chart:{id:'small-chart05',data:[4,1,1,4,6,1,1]},style:{"background":"#a571bf"}},
+					{name:"挪威猫",num:8,clickNum:'6%',chart:{id:'small-chart06',data:[1,2,2,6,1,5,3]},style:{"background":"#c3c28f"}},
+					{name:"缅因猫",num:21,clickNum:'2%',chart:{id:'small-chart07',data:[2,1,3,1,7,1,6]},style:{"background":"#4cc361"}},
+					{name:"埃及猫",num:12,clickNum:'12%',chart:{id:'small-chart08',data:[2,1,5,1,7,4,1]},style:{"background":"#379cbb"}},
+					{name:"美短猫",num:5,clickNum:'23%',chart:{id:'small-chart09',data:[2,1,3,1,1,1,1]},style:{"background":"#e65656"}},
 				],
 			}
 		},
 		mounted:function(){
 		},
-		watch:{
-			
+		created(){
+			var self = this;
+			setTimeout( function() {
+				self.drawChart();
+			},1000);
 		},
 		methods : {
 			addAnimation: function(){
 
+			},
+			drawChart: function(){
+				var smallChartOpt = {
+						title:{
+							text:" ",
+						},
+			            barWidth:7,
+						xAxis: {
+						    type: 'category',
+						},
+						grid:{
+			            	left:0,
+			            	top:0,
+			            	right:0,
+			            	bottom:0
+			            },
+						yAxis: {
+						    type: 'value',
+						    show:false
+						},
+						xAxis: {
+						    type: 'category',
+						},
+						color:["rgb(136, 214, 222)"],
+						series: [{
+						    data: [],
+						    type: 'bar'
+						}]
+			        };
+			        for(var i=0;i < this.tableData.length;i++){
+			        	smallChartOpt.series[0].data = this.tableData[i].chart.data;
+			        	smallChartOpt.color[0] = this.colorList[i];
+			        	var smallChart = this.tableData[i].chart.id;
+			        	smallChart = this.echarts.init(document.getElementById(this.tableData[i].chart.id));
+						smallChart.setOption(smallChartOpt);
+			        }
 			}
 		},
 		beforeDestroy () {
@@ -86,8 +153,9 @@
 	};
 </script>
 
-<style>
+<style scoped>
 .rank-number{
+	display: inline-block;
     padding: 3px 15px;
     background: #ddd;
     border-radius: 20px;
@@ -98,19 +166,16 @@
     font-size: 14px;
     color:#fff;
 }
-/*.color01{
-	background: #88d6de;
+.rank-table-box{
+	padding: 0 20px;
 }
-.color02{
-	background: #88d6de;
+.rank-table-box table .cell{
+	text-align: center;
 }
-.color03{
-	background: #88d6de;
+.rank-table-box .el-table th, .el-table td{
+	padding:6px 0;
 }
-.color04{
-	background: #88d6de;
+.small-chart{
+	width:70px;height: 26px;margin: 0 auto;
 }
-.color05{
-	background: #88d6de;
-}*/
 </style>

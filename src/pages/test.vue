@@ -1,37 +1,6 @@
 <template>
 	<div class="nav-box" v-bind:class="navLocaltion">
    		<div class="nav">
-		    <!-- <el-menu
-		      default-active="1"
-		      @open="handleOpen"
-		      @close="handleClose"
-		     >
-		     <el-menu-item index="1" @click="toPage('/')">
-		        <i class="fa fa-dashboard"></i>
-		        <span slot="title">首页</span>
-		      </el-menu-item>
-		      <el-submenu index="2">
-		        <template slot="title">
-		          <i class="fa fa-dashboard"></i>
-		          <span>表格</span>
-		        </template>
-		        <el-menu-item-group>
-		          <el-menu-item index="1-1" @click="toPage('/primaryTable')" >初级表格</el-menu-item>
-		          <el-menu-item index="1-2" @click="toPage('/secTable')">中级表格</el-menu-item>
-		          <el-menu-item index="1-3" @click="toPage('/seniorTable')">高级表格</el-menu-item>
-		        </el-menu-item-group>
-		      </el-submenu>
-		      
-		      <el-menu-item index="3" >
-		        <i class="fa fa-dashboard"></i>
-		        <span slot="title">表单</span>
-		      </el-menu-item>
-		      <el-menu-item index="4">
-		        <i class="fa fa-dashboard"></i>
-		        <span slot="title">导航四</span>
-		      </el-menu-item>
-		    </el-menu> -->
-		    <side-bar></side-bar>
 		</div>
  	</div>
 </template>
@@ -55,15 +24,7 @@
 			// this.authorityList  = ["page01","page02","page03","page04","page05"];
 		},
 		methods:{
-			toggleNav:function(){
-				var self = this;
-				this.navStatus =  !this.navStatus;
-				this.$emit("navToggle",self.navStatus);
-			},
-			
-			toPage: function(path){
-				this.$router.push(path);
-			}
+		
 		}
 	};
 </script>

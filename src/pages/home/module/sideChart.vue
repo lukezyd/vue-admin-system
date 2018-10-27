@@ -14,7 +14,6 @@
 		},
 		mounted(){
 			this.init();
-
 			window.addEventListener('resize',this.resizeChart,false);
 		},
 		methods:{
@@ -28,7 +27,7 @@
 						},
 						grid:{
 			            	left:50,
-			            	top:20,
+			            	top:50,
 			            	right:50,
 			            	bottom:20
 			            },
@@ -56,7 +55,7 @@
 					    series: [{
 			    		    symbol:'circle',
 					        symbolSize:10,
-					        data: [820, 932, 901, 934, 1290, 1330, 1320, 901, 934, 1290, 1330, 1320],
+					        data: [20,40, 60, 80, 70, 110, 130, 150, 80, 70, 110, 130],
 					        type: 'line'
 					    }]
 			        };
@@ -73,11 +72,10 @@
 				            },
 							grid:{
 				            	left:50,
-				            	top:35,
+				            	top:50,
 				            	right:50,
 				            	bottom:20
 				            },
-				            // barWidth:20,
 				            itemStyle:{
 				            	barBorderRadius:[3,3,0,0]
 				            },
@@ -132,7 +130,7 @@
 		border-radius:5px;
 	}
 	#sideChart02{
-		margin-top: 2%;
+		margin-top: 4%;
 		padding: 10px;
 		background-color: #6cb2d9;
 		color:#fff;

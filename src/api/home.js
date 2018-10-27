@@ -1,11 +1,11 @@
 import $axios from '@/utils/request'
 
-// export function catData(){
-// 	return $axios({
-// 		url:'/catList',
-// 		method:'post'
-// 	});
-// }
+export function sumData(){
+	return $axios({
+		url:'/sumData',
+		method:'post'
+	});
+}
 
 export function firstData(){
 	return $axios({

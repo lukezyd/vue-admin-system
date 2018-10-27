@@ -2,10 +2,8 @@
 	<div class="time-line">
 		<div class="panel-body">
           <div class="text-center mbot30">
-              <h3 class="timeline-title">时间轴</h3>
-              <p class="t-info">大事记</p>
+              <h3 class="timeline-title">本月大事记</h3>
           </div>
-
           <div class="timeline">
               <article class="timeline-item">
                   <div class="timeline-desk">
@@ -13,9 +11,9 @@
                           <div class="panel-body">
                               <span class="arrow"></span>
                               <span class="timeline-icon red"></span>
-                              <span class="timeline-date">08:25 am</span>
-                              <h1 class="red">12 July | Sunday</h1>
-                              <p>Lorem ipsum dolor sit amet consiquest dio</p>
+                              <span class="timeline-date">21:25 am</span>
+                              <h1 class="red"> 10月 20日 | 周六</h1>
+                              <p>网站访问量突破30000</p>
                           </div>
                       </div>
                   </div>
@@ -26,9 +24,9 @@
                           <div class="panel-body">
                               <span class="arrow-alt"></span>
                               <span class="timeline-icon green"></span>
-                              <span class="timeline-date">10:00 am</span>
-                              <h1 class="green">10 July | Wednesday</h1>
-                              <p><a href="#">Jonathan Smith</a> added new milestone <span><a href="#" class="green">ERP</a></span></p>
+                              <span class="timeline-date">13:00 am</span>
+                              <h1 class="green">10月 18日 | 周四</h1>
+                              <p>引进<a href="#">挪威猫</a> 200只。</span></p>
                           </div>
                       </div>
                   </div>
@@ -40,25 +38,8 @@
                               <span class="arrow"></span>
                               <span class="timeline-icon blue"></span>
                               <span class="timeline-date">11:35 am</span>
-                              <h1 class="blue">05 July | Monday</h1>
-                              <p><a href="#">Anjelina Joli</a> added new album <span><a href="#" class="blue">PARTY TIME</a></span></p>
-                              <div class="album">
-                                  <a href="#">
-                                      <img alt="" src="img/sm-img-1.jpg">
-                                  </a>
-                                  <a href="#">
-                                      <img alt="" src="img/sm-img-2.jpg">
-                                  </a>
-                                  <a href="#">
-                                      <img alt="" src="img/sm-img-3.jpg">
-                                  </a>
-                                  <a href="#">
-                                      <img alt="" src="img/sm-img-1.jpg">
-                                  </a>
-                                  <a href="#">
-                                      <img alt="" src="img/sm-img-2.jpg">
-                                  </a>
-                              </div>
+                              <h1 class="blue">10月 10日 | 周三</h1>
+                              <p>购买<a href="#">猫粮</a> 800KG，新增 <span><a href="#" class="blue">猫舍</a>110间。</span></p>
                           </div>
                       </div>
                   </div>
@@ -69,11 +50,11 @@
                           <div class="panel-body">
                               <span class="arrow-alt"></span>
                               <span class="timeline-icon purple"></span>
-                              <span class="timeline-date">3:20 pm</span>
-                              <h1 class="purple">29 June | Saturday</h1>
-                              <p>Lorem ipsum dolor sit amet consiquest dio</p>
+                              <span class="timeline-date">08:20 pm</span>
+                              <h1 class="purple">10月 12日 | 周五</h1>
+                              <p>救助流浪猫60只。</p>
                               <div class="notification">
-                                  <i class=" fa fa-exclamation-sign"></i> New task added for <a href="#">Denial Collins</a>
+                                  <i class=" fa fa-exclamation-sign"></i> 具体信息请 <a href="#">点击查看</a>
                               </div>
                           </div>
                       </div>
@@ -85,9 +66,9 @@
                           <div class="panel-body">
                               <span class="arrow"></span>
                               <span class="timeline-icon light-green"></span>
-                              <span class="timeline-date">07:49 pm</span>
-                              <h1 class="light-green">10 June | Friday</h1>
-                              <p><a href="#">Jonatha Smith</a> added new milestone <span><a href="#" class="light-green">prank</a></span> Lorem ipsum dolor sit amet consiquest dio</p>
+                              <span class="timeline-date">12:49 pm</span>
+                              <h1 class="light-green">10月 7日 | 周日</h1>
+                              <p><a href="#">猫咪乐园</a> 正式成立啦。 </p>
                           </div>
                       </div>
                   </div>
@@ -126,13 +107,11 @@
     z-index: 0;
 }
 
-h3.timeline-title {
-    margin: 0;
-    color: #C8CCD7;
+.timeline-title {
+    color: #737373;
     font-size: 20px;
     font-weight: 400;
     margin: 0 0 5px;
-    text-transform: uppercase;
 }
 
 .t-info {

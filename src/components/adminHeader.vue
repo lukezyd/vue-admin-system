@@ -68,7 +68,7 @@
 			            message: '退出成功!'
 			         });
 		          	if(response.code == 200){
-		          		this.$router.push('/login');
+		          		this.$router.push('/');
 		          	}
 		          },error => {
 		          	this.$message({

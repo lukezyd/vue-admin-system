@@ -91,12 +91,12 @@ li{list-style: none;}
 }
 
 .zHome{
-	padding:20px 15px;width: 100%;position: relative;background: #f1f2f7;padding-bottom:30px;
+	padding:20px 15px;width: 100%;position: relative;background: #f1f2f7;padding-bottom:90px;
 	.zHome-datasum{
 		width:94%;margin-left:3%;
 		li{float: left;width: 20%;margin-right: 6.6666%;text-align: center;height:76px;background:#fff;cursor: pointer;border-radius: 5px;}
 		li:last-child{margin-right: 0;}
-		li .fa{padding:  24px;color:#fff;width: 40%;border-top-left-radius:5px;border-bottom-left-radius:5px;}
+		li .fa{padding:  22px;color:#fff;width: 40%;border-top-left-radius:5px;border-bottom-left-radius:5px;}
 		.zHome-datasum__box{
 			text-align: center;overflow: hidden;padding: 10px 0;border-left:none;
 			.sun-num{font-size: 34px;display: block;font-weight: bold;}
@@ -107,29 +107,29 @@ li{list-style: none;}
 	.zHome-aside__chart{width: 33%;height: 450px;margin-left: 2%;}
 	.zHome-other__chart{width: 33%;height: 560px;margin-right: 2%;margin-bottm: 20px;}
 	.zHome-recommend{
-		width: 27%;background: #fff;margin-top: 25px;height:422px;margin-left: 2%;
-		.zHome-recommend__info{padding: 15px;}
+		width: 28%;background: #fff;margin-top: 25px;height:422px;margin-left: 2%;
+		.zHome-recommend__info{padding:20px 15px;}
 		.info-logo img{width: 120px;height: 108px;}
 		.info-main{
 			overflow: hidden;margin: 10px 0 0 10px;font-size:14px;
 			p{text-align: left;padding-left: 20px;margin-top: 12px;}
 			.info-main__name{color:#4ac7ef;font-size: 22px;}
 		}
-		li{border-top: 1px solid #eee;line-height: 45px;text-align: center;padding: 0 20px;color:#828282}
-		li:hover{background:#ddd;}
+		li{border-top: 1px solid #eee;line-height: 50px;text-align: center;padding: 0 20px;color:#828282}
+		li:hover{background:#F4F4F4;}
 	}
 	.zHome-rank{
 		width: 65%;height: 450px;background: #fff;
 		.zHome-rank__head{padding:15px;}
 		li{
-			line-height: 42px;padding:0 15px;display: table;width: 100%;border-top:1px solid #eee;
+			line-height: 39px;padding:0 15px;display: table;width: 100%;border-top:1px solid #eee;
 			span{display: table-cell;}
-			&:hover{background:#ddd;}
+			&:hover{background:#F4F4F4;}
 		}
 	}
 
 	.zHome-timeline{
-		width: 65%;margin-bottom: 20px;background:#fff;
+		width: 65%;margin-bottom: 20px;background:#fff;height:560px;
 	}
 }
 

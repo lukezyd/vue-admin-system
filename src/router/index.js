@@ -8,19 +8,21 @@ const test = require("@/pages/test");
 
 import table from './module/table'
 import formRouter from './module/form'
+import chartRouter from './module/chart'
 // const map = require("../packages/charts/map/map.vue");
 
 const routes = [
-	{path:'/login',component:userLogin},
+	{path:'/',component:userLogin},
 	{
-		path:'/',
+		path:'/home',
 		component:main,
 		children:[
 			{path:'/',component:homePage},
 		]
 	},
 	table,
-	formRouter
+	formRouter,
+	chartRouter
 	// {path:"/test",component:test},
 	// {path:"/map",component:map}
 ];

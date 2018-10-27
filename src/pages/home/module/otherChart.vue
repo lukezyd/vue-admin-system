@@ -2,10 +2,11 @@
 	<div style="width:100%;height: 100%;">
 		<div class="otherChart-bottom">
 			 <el-carousel trigger="click" style="height:100%;">
-		      <el-carousel-item v-for="item in 4" :key="item">
+		      <el-carousel-item v-for="(item,index) in catList" :key="index">
+		      	<img class="cat-img" :src="item.img" alt="">
 		      	<div class="swiper-content">
 		      		<h3>这是一个标题</h3>
-		        	<p>这是一个描述，这是一个描述，这是一个描述，这是一个描述</p>
+		        	<!-- <p>这是一个描述，这是一个描述.</p> -->
 		      	</div>
 		      </el-carousel-item>
 		    </el-carousel>
@@ -14,14 +15,14 @@
 			<div class="otherChart-top__title">
 				<span class="top-title__icon fl"><i class="fa fa-bar-chart"></i></span>
 				<span >概况</span>
-				<span class="top-title__icon fr">2018-12月</span>
+				<span class="top-title__icon fr">2018-10月</span>
 			</div>
 			<div id="otherChart01" ></div>
 			<div class="otherChart-top__menu">
 				<ul>
-					<li class="active"><i class="fa fa-bullseye"></i><br><span>kekeke</span></li>
-					<li><i class="fa fa-braille"></i><br><span>kekeke</span></li>
-					<li><i class="fa fa-clone"></i><br><span>kekeke</span></li>
+					<li class="active"><i class="fa fa-bullseye"></i><br><span>用户来源</span></li>
+					<li><i class="fa fa-braille"></i><br><span>流失率</span></li>
+					<li><i class="fa fa-clone"></i><br><span>增长率</span></li>
 				</ul>
 			</div>
 		</div>
@@ -31,7 +32,13 @@
 	export default{
 		data(){
 			return {
-				otherChart:null
+				otherChart:null,
+				catList:[
+					{img:'/static/images/cat01.jpg'},
+					{img:'/static/images/cat02.jpg'},
+					{img:'/static/images/cat03.jpg'},
+					{img:'/static/images/cat04.jpg'}
+				]
 			}
 		},
 		mounted(){
@@ -185,13 +192,16 @@
 	     background-color: #d3dce6;
 	  }
 	  .swiper-content{
-	  	height: 100px;
+	  	height: 60px;
 	  	position: absolute;
 	  	bottom: 0;
 	  	width:100%;
 	  	color:#fff;
-	  	padding: 20px 50px;
+	  	padding: 10px 30px;
 	  	text-align: left;
-	  	background: rgba(0,0,0,.3);
+	  	background: rgba(0,0,0,.2);
+	  }
+	  .cat-img{
+	  	width:100%;height: 100%;
 	  }
 </style>
