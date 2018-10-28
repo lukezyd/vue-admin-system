@@ -60,33 +60,3 @@
 		}
 	};
 </script>
-<style>
-	.search{
-
-	}
-	.ztable-search{
-		margin-bottom: 25px;
-		text-align: left;
-	}
-	.search .el-form-item{
-		margin-bottom: 0;
-		margin-left: 10px;
-	}
-	.el-input__inner{
-		height: 34px;
-		line-height: 34px;
-		border-radius: 3px;
-		padding: 0 10px;
-	}
-	.el-button{
-		height: 34px;
-		line-height: 0;
-	}
-
-	.more-search{
-		margin-top: 15px;
-	}
-	.el-date-editor .el-range-separator{
-		line-height: 27px;width: 10%;
-	}
-</style>

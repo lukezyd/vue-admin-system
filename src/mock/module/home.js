@@ -5,7 +5,7 @@ const catChart = {
 
 const firstData = {
 	synopsis:{
-		logo:'/static/images/p_logo.jpg',
+		logo:'./static/images/p_logo.jpg',
 		name:'布偶猫',
 		desc:'温顺好静,对人友善,美丽优雅,又被称为"仙女猫"。'
 	},
