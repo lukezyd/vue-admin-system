@@ -1,32 +1,26 @@
-const main = require("@/pages/main");
-const tableIndex = require("@/pages/ztable/index");
-const primaryTable = require("@/pages/ztable/components/simple");
-const secTable = require("@/pages/ztable/components/complex");
-const seniorTable = require("@/pages/ztable/components/complex-est");
-
 const table = {
 	path:"/",
-	component:main,
+	component:resolve => require(['@/pages/main'],resolve),
 	children: [
 		{
 			path:'/ztable/index',
 			name:'ztable',
-			component:tableIndex,
+			component:resolve => require(['@/pages/ztable/index'],resolve),
 			children:[
 				{
 					path:'/ztable/primary',
 					name:'primary',
-					component:primaryTable,
+					component:resolve => require(['@/pages/ztable/components/simple'],resolve),
 				},
 				{
 					path:'/ztable/second',
 					name:'second',
-					component:secTable,
+					component:resolve => require(['@/pages/ztable/components/complex'],resolve),
 				},
 				{
 					path:'/ztable/senior',
 					name:'senior',
-					component:seniorTable,
+					component:resolve => require(['@/pages/ztable/components/complex-est'],resolve),
 				}
 			]
 		}

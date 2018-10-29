@@ -26,79 +26,8 @@
   </div>
 </template>
 <script>
+import { tableData } from '@/api/ztable'
 import tableSearch from './search'
-
-const catData = [{
-  name: '小咪1号',
-  age: 2,
-  sex: '女猫',
-  type: '折耳猫',
-  value: 1,
-  date: '2018-10-12',
-}, {
-  name: '小咪2号',
-  age: 2,
-  sex: '男猫',
-  type: '英短猫',
-  value: 1,
-  date: '2018-10-12',
-}, {
-  name: '小咪3号',
-  age: 2,
-  sex: '男猫',
-  type: '折耳猫',
-  value: 2,
-  date: '2018-10-12',
-}, {
-  name: '小咪4号',
-  age: 2,
-  sex: '男猫',
-  value: 3,
-  type: '布偶猫',
-  date: '2018-10-12',
-}, {
-  name: '小咪5号',
-  age: 2,
-  sex: '女猫',
-  value: 4,
-  type: '缅因猫',
-  date: '2018-10-12',
-}, {
-  name: '小咪6号',
-  age: 2,
-  sex: '男猫',
-  value: 5,
-  type: '折耳猫',
-  date: '2018-10-12',
-}, {
-  name: '小咪7号',
-  age: 2,
-  sex: '男猫',
-  value: 6,
-  type: '埃及猫',
-  date: '2018-10-05',
-}, {
-  name: '小咪8号',
-  age: 2,
-  sex: '女猫',
-  value: 7,
-  type: '折耳猫',
-  date: '2018-10-15',
-}, {
-  name: '小咪9号',
-  age: 2,
-  value: 8,
-  sex: '女猫',
-  type: '折耳猫',
-  date: '2018-10-18',
-}, {
-  name: '小咪10号',
-  age: 2,
-  sex: '女猫',
-  value: 9,
-  type: '折耳猫',
-  date: '2018-10-11',
-}];
 
 export default {
   components: {
@@ -107,10 +36,18 @@ export default {
   data() {
     return {
       copyData: [],
-      tableData: catData
+      tableData: []
     }
   },
   methods: {
+    loadData: function(){
+       tableData().then( response => {
+        this.tableData = response.catData;
+        this.copyData = response.catData;
+       }).catch(error => {
+        console.log(error);
+       });
+    },
     search: function(opt) {
       this.tableData = catData.filter(function(item) {
         return  ( item.name.toLowerCase().indexOf(opt.name) != -1 && 
@@ -122,21 +59,17 @@ export default {
       this.tableData = catData;
     }
   }
-}
-
+};
 </script>
 <style>
 .el-table .warning-row {
   background: oldlace;
 }
-
 .el-table .success-row {
   background: #f0f9eb;
 }
-
 .page-number {
   padding: 15px;
   text-align: right;
 }
-
 </style>

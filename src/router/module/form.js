@@ -1,32 +1,17 @@
-const main = require("@/pages/main");
-const formIndex = require("@/pages/form/index");
-const primaryForm = require("@/pages/form/components/simple");
-
-
 const formRouter = {
 	path:'/',
-	component:main,
+	component:resolve => require(['@/pages/main'],resolve),
 	children: [
 		{
 			path:'/zform/index',
 			name:'zform',
-			component:formIndex,
+			component:resolve => require(['@/pages/form/index'],resolve),
 			children:[
 				{
 					path:'/zform/primary',
 					name:'primary',
-					component:primaryForm,
-				},
-				// {
-				// 	path:'/ztable/second',
-				// 	name:'second',
-				// 	component:secTable,
-				// },
-				// {
-				// 	path:'/ztable/senior',
-				// 	name:'senior',
-				// 	component:seniorTable,
-				// }
+					component:resolve => require(['@/pages/form/components/simple'],resolve),
+				}
 			]
 		}
 	]

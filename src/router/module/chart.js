@@ -1,32 +1,17 @@
-const main = require("@/pages/main");
-const formIndex = require("@/pages/chart/index");
-const complexChart = require("@/pages/chart/components/complex");
-
-
 const chartRouter = {
 	path:'/',
-	component:main,
+	component:resolve => require(['@/pages/main'],resolve),
 	children: [
 		{
 			path:'/zchart/index',
 			name:'zchart',
-			component:formIndex,
+			component:resolve => require(['@/pages/chart/index'],resolve),
 			children:[
 				{
 					path:'/zchart/complex',
 					name:'complex',
-					component:complexChart,
-				},
-				// {
-				// 	path:'/ztable/second',
-				// 	name:'second',
-				// 	component:secTable,
-				// },
-				// {
-				// 	path:'/ztable/senior',
-				// 	name:'senior',
-				// 	component:seniorTable,
-				// }
+					component:resolve => require(['@/pages/chart/components/complex'],resolve),
+				}
 			]
 		}
 	]
