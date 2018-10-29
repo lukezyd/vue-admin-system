@@ -78,14 +78,17 @@
 		},
 		methods:{
 			onSubmit: function(){
-				
+				console.log(this.catForm)
+				if(this.catForm.name || this.catForm.type || this.catForm.date){
+					this.$emit("search",this.catForm);
+				}
 			},
 			toggleMore: function(){
 				this.showMore = !this.showMore;
 			},
 			resetForm:function(form){
 				this.$refs[form].resetFields();
-				// this.$emit("reset");
+				this.$emit("reset");
 			}
 		}
 	};

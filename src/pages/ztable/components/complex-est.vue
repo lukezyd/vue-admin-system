@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table-search></table-search>
+    <table-search @search="search" @reset="reset"></table-search>
     <div class="table-handle">
         <el-button size="mini" type="primary" @click="">新增</el-button>
         <el-button size="mini" disabled  @click="">删除</el-button>
@@ -42,13 +42,15 @@
   </div>
 </template>
 <script>
+  import _ from 'lodash'
 import { tableData } from '@/api/ztable'
 import tableSearch from './searchMore'
 
 export default {
   data() {
     return {
-      tableData:[]
+      tableData:[],
+      copyData:[]
     }
   },
   components: {
@@ -61,6 +63,7 @@ export default {
     loadData: function(){
        tableData().then( response => {
         this.tableData = response.catData;
+        this.copyData = response.catData;
        }).catch(error => {
         console.log(error)
        })
@@ -69,7 +72,34 @@ export default {
       console.log(index, row);
     },
     handleDelete: function(index, row) {
-      console.log(index, row);
+      this.$confirm('确定要删除么?', '提示', {
+              confirmButtonText: '确定',
+              cancelButtonText: '取消',
+              type: 'warning'
+            }).then( () => {
+               var index = _.findIndex(this.tableData, function(o) { return o.id == row.id; });
+              this.tableData.splice(index,1);
+              this.$message({
+                  type: 'success',
+                  message: '删除成功!'
+               });
+            }).catch(error => {
+              this.$message({
+                type: 'info',
+                message: '已取消'
+              }); 
+            });
+    },
+    search: function(opt) {
+      this.tableData = this.copyData.filter(function(item) {
+        return  ( item.name.toLowerCase().indexOf(opt.name) != -1 && 
+                  (opt.type ? item.value == opt.type : true) && 
+                  (opt.date ? (Date.parse(opt.date[0]) <= Date.parse(item.date) && Date.parse(item.date) <= Date.parse(opt.date[1])) : true));
+      });
+    },
+    reset: function() {
+      console.log(this.copyData)
+      this.tableData = this.copyData;
     }
   }
 };

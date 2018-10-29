@@ -39,6 +39,9 @@ export default {
       tableData: []
     }
   },
+  mounted(){
+    this.loadData();
+  },
   methods: {
     loadData: function(){
        tableData().then( response => {
@@ -49,14 +52,14 @@ export default {
        });
     },
     search: function(opt) {
-      this.tableData = catData.filter(function(item) {
+      this.tableData = this.copyData.filter(function(item) {
         return  ( item.name.toLowerCase().indexOf(opt.name) != -1 && 
                   (opt.type ? item.value == opt.type : true) && 
                   (opt.date ? (Date.parse(opt.date[0]) <= Date.parse(item.date) && Date.parse(item.date) <= Date.parse(opt.date[1])) : true));
       });
     },
     reset: function() {
-      this.tableData = catData;
+      this.tableData = this.copyData;
     }
   }
 };
