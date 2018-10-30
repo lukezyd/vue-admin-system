@@ -1,5 +1,5 @@
 <template>
-  <el-scrollbar wrapClass="scrollbar-wrapper">
+  <!-- <el-scrollbar wrapClass="scrollbar-wrapper"> -->
     <el-menu
           :default-active="$route.path"
           :default-openeds="openeds"
@@ -8,7 +8,7 @@
          >
         <nav-item v-for="(route,index) in navList"  data-item="route.basePath" :key="route.text" :index="route.basePath" :subIndex="route.index" :item="route" :base-path="route.path"></nav-item>
     </el-menu>
-  </el-scrollbar>
+  <!-- </el-scrollbar> -->
 </template>
 
 <script>

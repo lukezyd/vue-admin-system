@@ -37,7 +37,6 @@
 </template>
 <script>
 	import { logoutFn } from '@/api/login'
-	import { Message } from 'element-ui'
 	export default{
 		name:"adminHeader",
 		data(){
