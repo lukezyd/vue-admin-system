@@ -10,9 +10,9 @@
 	export default {
 		name:'ztable',
 		data (){
-			return {}
+			return {
+			}
 		},
-		
 		methods:{
 			onSubmit: function(){
 

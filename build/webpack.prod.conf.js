@@ -98,6 +98,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       name: 'manifest',
       minChunks: Infinity
     }),
+
     // This instance extracts shared chunks from code splitted chunks and bundles them
     // in a separate chunk, similar to the vendor chunk
     // see: https://webpack.js.org/plugins/commons-chunk-plugin/#extra-async-commons-chunk
@@ -124,7 +125,7 @@ if (config.build.productionGzip) {
 
   webpackConfig.plugins.push(
     new CompressionWebpackPlugin({
-      asset: '[path].gz[query]',
+      filename: '[path].gz[query]',
       algorithm: 'gzip',
       test: new RegExp(
         '\\.(' +

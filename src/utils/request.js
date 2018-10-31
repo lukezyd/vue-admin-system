@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Message } from 'element-ui'
+// import { Message } from 'element-ui'
 
 
 const ajax = new axios.create({
@@ -29,13 +29,13 @@ ajax.interceptors.response.use(
 		 *
 		 */
 		if(code == 10001){
-			Message({
-		      message: '身份验证失败，请重新登录',
-		      type: 'error',
-		      duration: 5 * 1000
-		    }).then(() => {
+			// Message({
+		 //      message: '身份验证失败，请重新登录',
+		 //      type: 'error',
+		 //      duration: 5 * 1000
+		 //    }).then(() => {
 
-		    });
+		 //    });
 
 		    Promise.reject(response);
 		}else{
@@ -43,11 +43,11 @@ ajax.interceptors.response.use(
 		}
 	}, 
 	error => {
-		Message({
-	      message: error.message,
-	      type: 'error',
-	      duration: 5 * 1000
-	    });
+		// Message({
+	 //      message: error.message,
+	 //      type: 'error',
+	 //      duration: 5 * 1000
+	 //    });
 
 	  	return Promise.reject(error);
 	}

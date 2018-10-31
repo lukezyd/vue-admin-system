@@ -11,17 +11,11 @@ export default {
   name: 'App',
   data (){
     return {
-      navLocaltion:'',
-      crumbsList:['首页']
     }
   }
 };
 </script>
-
-<style lang="scss">
-$--color-primary: #81b38a;
-// *{padding: 0;margin:0;box-sizing: border-box;}
-// .btn{outline: none;}
+<style >
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

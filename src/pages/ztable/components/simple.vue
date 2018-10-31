@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div  v-loading="loading">
     <div class="ztable-search">
-      <table-search @search="search" @reset="reset"></table-search>
+      <table-search @search="search" @reset="reset" ></table-search>
     </div>
     <div class="simple">
       <el-table :data="tableData" style="width: 100%">
@@ -19,7 +19,7 @@
         </el-table-column>
       </el-table>
       <div class="page-number">
-        <el-pagination background layout="prev, pager, next" :total="122">
+        <el-pagination background layout="prev, pager, next" :total="1">
         </el-pagination>
       </div>
     </div>
@@ -36,7 +36,8 @@ export default {
   data() {
     return {
       copyData: [],
-      tableData: []
+      tableData: [],
+      loading:false
     }
   },
   mounted(){
@@ -52,11 +53,15 @@ export default {
        });
     },
     search: function(opt) {
-      this.tableData = this.copyData.filter(function(item) {
+      this.loading = true;
+      setTimeout(() => {  //加定时器是看一下loading 效果，不是必须的
+        this.loading = false;
+        this.tableData = this.copyData.filter(function(item) {
         return  ( item.name.toLowerCase().indexOf(opt.name) != -1 && 
-                  (opt.type ? item.value == opt.type : true) && 
-                  (opt.date ? (Date.parse(opt.date[0]) <= Date.parse(item.date) && Date.parse(item.date) <= Date.parse(opt.date[1])) : true));
-      });
+                (opt.type ? item.value == opt.type : true) && 
+                (opt.date ? (Date.parse(opt.date[0]) <= Date.parse(item.date) && Date.parse(item.date) <= Date.parse(opt.date[1])) : true));
+                });
+      },800);
     },
     reset: function() {
       this.tableData = this.copyData;

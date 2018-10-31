@@ -7,7 +7,6 @@ var config = require('../config')
 
 var opn = require('opn')
 var path = require('path')
-var express = require('express')
 var webpack = require('webpack')
 var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = require('./webpack.dev.conf')
@@ -20,7 +19,6 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 // https://github.com/chimurai/http-proxy-middleware
 var proxyTable = config.dev.proxyTable
 
-var app = express()
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
@@ -59,11 +57,6 @@ app.use(devMiddleware)
 // compilation error display
 app.use(hotMiddleware)
 
-
-//配置个人服务器
-var router = require("../server/service");
-console.log(router)
-app.use(router);
 
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)

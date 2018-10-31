@@ -26,6 +26,7 @@ export default{
 		border-bottom: 1px solid #ddd;
 		padding: 0 20px;
 	}
+	.el-breadcrumb{line-height: 39px;}
 	.crumbs-box{
 		height: 100%;overflow: hidden;
 		padding: 0 12px;
