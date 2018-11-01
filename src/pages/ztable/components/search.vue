@@ -17,7 +17,7 @@
 			      <el-option label="埃及猫" value="8"></el-option>
 			    </el-select>
 			  </el-form-item>
-			  <el-form-item label="领养时间"  prop="date">
+			  <el-form-item label="时间"  prop="date">
 			    <el-date-picker
 			      v-model="catForm.date"
 			      type="daterange"
@@ -60,3 +60,15 @@
 		}
 	};
 </script>
+<style>
+.el-form-item{
+	width: 20%;
+}
+.el-form--inline .el-form-item__content{
+	width: 80%;
+}
+.el-date-editor--daterange.el-input, .el-date-editor--daterange.el-input__inner, 
+.el-date-editor--timerange.el-input, .el-date-editor--timerange.el-input__inner{
+	width:100%;
+}
+</style>

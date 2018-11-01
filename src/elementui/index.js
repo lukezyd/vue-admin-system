@@ -37,8 +37,7 @@ import {
   Col,
   Carousel,
   CarouselItem,
-
-
+  Scrollbar 
 
   // Autocomplete,
   // Dropdown,
@@ -104,7 +103,7 @@ Vue.use(Col);
 Vue.use(Carousel);
 Vue.use(CarouselItem);
 Vue.use(Loading.directive);
-
+Vue.use(Scrollbar)
 // Vue.use(InputNumber);
 // Vue.use(Alert);
 // Vue.use(Autocomplete);

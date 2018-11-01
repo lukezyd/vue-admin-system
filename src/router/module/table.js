@@ -18,9 +18,9 @@ const table = {
 					component:resolve => require(['@/pages/ztable/components/complex'],resolve),
 				},
 				{
-					path:'/ztable/senior',
-					name:'senior',
-					component:resolve => require(['@/pages/ztable/components/complex-est'],resolve),
+					path:'/ztable/details/:id',
+					name:'tdetails',
+					component:resolve => require(['@/pages/ztable/components/details'],resolve),
 				}
 			]
 		}

@@ -80,4 +80,5 @@ export default {
   padding: 15px;
   text-align: right;
 }
+
 </style>

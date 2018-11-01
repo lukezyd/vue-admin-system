@@ -6,3 +6,10 @@ export function tableData(){
 		method:'post'
 	})
 }
+
+export function tableDetails(){
+	return $axios({
+		url:'/tableDetails',
+		methods:'post'
+	});
+}

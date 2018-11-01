@@ -17,7 +17,7 @@
 			      <el-option label="埃及猫" value="8"></el-option>
 			    </el-select>
 			  </el-form-item>
-			  <el-form-item label="领养时间"  prop="date">
+			  <el-form-item label="时间"  prop="date">
 			    <el-date-picker
 			      v-model="catForm.date"
 			      type="daterange"
@@ -26,27 +26,28 @@
 			      end-placeholder="结束日期">
 			    </el-date-picker>
 			  </el-form-item>
-			  <el-form-item>
+			  <el-form-item class="btn-box">
 			    <el-button type="primary" @click="onSubmit">查询</el-button>
 			    <el-button  @click="resetForm('catForm')">重置</el-button>
+			    <el-button class="search-show-more"  @click="toggleMore"><i class="fa fa-angle-down"></i>{{showText}}</el-button>
 			  </el-form-item>
-			  <el-form-item>
+			 <!--  <el-form-item>
 			    <el-button  @click="toggleMore">{{showText}}</el-button>
-			  </el-form-item>
-				  <div class="more-search" v-show="showMore">
-					  <el-form-item label="审批人">
-					    <el-input v-model="formInline.age" placeholder="审批人"></el-input>
-					  </el-form-item>
-					   <el-form-item label="审批人">
-					    <el-input v-model="formInline.user" placeholder="审批人"></el-input>
-					  </el-form-item>
-					  <el-form-item label="活动区域">
-					    <el-select v-model="formInline.region" placeholder="活动区域">
-					      <el-option label="区域一" value="shanghai"></el-option>
-					      <el-option label="区域二" value="beijing"></el-option>
-					    </el-select>
-				  	  </el-form-item>
-				  </div>
+			  </el-form-item> -->
+			  <div class="more-search" v-show="showMore">
+				  <el-form-item label="审批人">
+				    <el-input v-model="formInline.age" placeholder="审批人"></el-input>
+				  </el-form-item>
+				   <el-form-item label="审批人">
+				    <el-input v-model="formInline.user" placeholder="审批人"></el-input>
+				  </el-form-item>
+				  <el-form-item label="活动区域">
+				    <el-select v-model="formInline.region" placeholder="活动区域">
+				      <el-option label="区域一" value="shanghai"></el-option>
+				      <el-option label="区域二" value="beijing"></el-option>
+				    </el-select>
+			  	  </el-form-item>
+			  </div>
 			</el-form>
 		</div>
 	</div>
@@ -57,7 +58,7 @@
 		data (){
 			return {
 		        showMore:false,
-		        showText:'高级查询',
+		        showText:'更多',
 		        catForm: {
 		          name: '',
 		          type: '',
@@ -73,12 +74,11 @@
 		watch:{
 			showMore: function(){
 				console.log(this.showMore)
-				this.showMore ? this.showText = '收起' : this.showText =  '高级查询';
+				this.showMore ? this.showText = '收起' : this.showText =  '更多';
 			}
 		},
 		methods:{
 			onSubmit: function(){
-				console.log(this.catForm)
 				if(this.catForm.name || this.catForm.type || this.catForm.date){
 					this.$emit("search",this.catForm);
 				}
@@ -93,3 +93,27 @@
 		}
 	};
 </script>
+<style>
+.el-form-item{
+	width: 20%;
+}
+.el-form--inline .el-form-item__content{
+	width: 80%;
+}
+.el-date-editor--daterange.el-input, .el-date-editor--daterange.el-input__inner, 
+.el-date-editor--timerange.el-input, .el-date-editor--timerange.el-input__inner{
+	width:100%;
+}
+
+.btn-box{
+	width: 25%;
+}
+.search-show-more{
+	border:none;
+}
+.search-show-more i{font-size: 16px;margin-right:7px;}
+.search-show-more:hover,.search-show-more:visited{
+	background: #fff;
+	color:#81b38a;
+}
+</style>

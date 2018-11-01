@@ -10,7 +10,7 @@ const formRouter = {
 				{
 					path:'/zform/primary',
 					name:'primary',
-					component:resolve => require(['@/pages/form/components/simple'],resolve),
+					component:resolve => require(['@/pages/form/components/simple'],resolve)
 				}
 			]
 		}

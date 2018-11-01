@@ -96,5 +96,10 @@ export default {
       catData,
       code:200
     }
+  },
+
+  tableDetails: config => {
+     const catId = JSON.parse(config.body).catId;
+     return catData[catId];
   }
 }
