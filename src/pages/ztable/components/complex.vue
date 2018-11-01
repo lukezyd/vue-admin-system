@@ -183,4 +183,7 @@ export default {
     text-align: center; 
     width:80px !important;
 }
+.el-date-editor.el-input, .el-date-editor.el-input__inner{
+   width:202px;
+}
 </style>

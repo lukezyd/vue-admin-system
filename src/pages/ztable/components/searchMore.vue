@@ -35,16 +35,13 @@
 			    <el-button  @click="toggleMore">{{showText}}</el-button>
 			  </el-form-item> -->
 			  <div class="more-search" v-show="showMore">
-				  <el-form-item label="审批人">
-				    <el-input v-model="formInline.age" placeholder="审批人"></el-input>
+				  <el-form-item label="年龄">
+				    <el-input v-model="catForm.age" placeholder="年龄"></el-input>
 				  </el-form-item>
-				   <el-form-item label="审批人">
-				    <el-input v-model="formInline.user" placeholder="审批人"></el-input>
-				  </el-form-item>
-				  <el-form-item label="活动区域">
-				    <el-select v-model="formInline.region" placeholder="活动区域">
-				      <el-option label="区域一" value="shanghai"></el-option>
-				      <el-option label="区域二" value="beijing"></el-option>
+				  <el-form-item label="性别">
+				    <el-select v-model="catForm.sex" placeholder="性别">
+				      <el-option label="男猫" value="男猫"></el-option>
+				      <el-option label="女猫" value="女猫"></el-option>
 				    </el-select>
 			  	  </el-form-item>
 			  </div>
@@ -94,26 +91,30 @@
 	};
 </script>
 <style>
-.el-form-item{
+.ztable-search .el-form-item{
 	width: 20%;
 }
-.el-form--inline .el-form-item__content{
+.ztable-search .el-form--inline .el-form-item__content{
 	width: 80%;
 }
-.el-date-editor--daterange.el-input, .el-date-editor--daterange.el-input__inner, 
-.el-date-editor--timerange.el-input, .el-date-editor--timerange.el-input__inner{
+.ztable-search .el-date-editor--daterange.el-input, .el-date-editor--daterange.el-input__inner, 
+.ztable-search .el-date-editor--timerange.el-input, .el-date-editor--timerange.el-input__inner{
 	width:100%;
 }
 
-.btn-box{
-	width: 25%;
+.ztable-search .btn-box{
+	width: 30%;
 }
 .search-show-more{
 	border:none;
+	padding: 10px 5px;
 }
 .search-show-more i{font-size: 16px;margin-right:7px;}
-.search-show-more:hover,.search-show-more:visited{
+.search-show-more:hover{
 	background: #fff;
 	color:#81b38a;
+}
+.search-show-more:focus{
+	background: #fff;
 }
 </style>

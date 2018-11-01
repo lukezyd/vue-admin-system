@@ -61,14 +61,14 @@
 	};
 </script>
 <style>
-.el-form-item{
+.ztable-search .el-form-item{
 	width: 20%;
 }
-.el-form--inline .el-form-item__content{
+.ztable-search .el-form--inline .el-form-item__content{
 	width: 80%;
 }
-.el-date-editor--daterange.el-input, .el-date-editor--daterange.el-input__inner, 
-.el-date-editor--timerange.el-input, .el-date-editor--timerange.el-input__inner{
+.ztable-search .el-date-editor--daterange.el-input,.ztable-searc .el-date-editor--daterange.el-input__inner, 
+.ztable-searc .el-date-editor--timerange.el-input,.ztable-searc .el-date-editor--timerange.el-input__inner{
 	width:100%;
 }
 </style>
