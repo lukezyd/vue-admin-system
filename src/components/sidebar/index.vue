@@ -1,5 +1,4 @@
 <template>
-  <!-- <el-scrollbar wrapClass="scrollbar-wrapper"> -->
     <el-menu
           :default-active="$route.path"
           :default-openeds="openeds"
@@ -8,7 +7,6 @@
          >
         <nav-item v-for="(route,index) in navList"  data-item="route.basePath" :key="route.text" :index="route.basePath" :subIndex="route.index" :item="route" :base-path="route.path"></nav-item>
     </el-menu>
-  <!-- </el-scrollbar> -->
 </template>
 
 <script>
@@ -28,17 +26,16 @@ export default {
         {text:'表单',basePath:'',index:'3',
           children:[
             {text:'初级表单',basePath:'/zform/primary',index:'3'}
-            // {text:'中级表格',basePath:'/zform/second',index:'3'},
-            // {text:'高级表格',basePath:'/zform/senior',index:'3'}
           ]
         },
         {text:'图表',basePath:'/zchart',index:'4',
           children:[
-            {text:'初级图表',basePath:'/zchart/complex',index:'4'}
+            {text:'用户分布',basePath:'/zchart/complex',index:'4'}
             // {text:'中级表格',basePath:'/zform/second',index:'4'},
             // {text:'高级表格',basePath:'/zform/senior',index:'4'}
           ]
-        }
+        },
+        {text:'404',basePath:'/notFind',index:'5'}
       ]
     }
   },

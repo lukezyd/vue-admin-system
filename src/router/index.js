@@ -12,6 +12,7 @@ const routes = [
 		component: resolve => require(['@/pages/main'],resolve),
 		children:[
 			{path:'/',component:resolve => require(['@/pages/home/index'],resolve)},
+			{path:'/notFind',component:resolve => require(['@/pages/404'],resolve)},
 		]
 	},
 	table,

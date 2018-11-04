@@ -10,6 +10,9 @@
  		this.$nextTick(() => {
  			worldMap.init();
  		})
+ 	},
+ 	brforeDestory(){
+ 		worldMap.removeMap();
  	}
   };
 </script>

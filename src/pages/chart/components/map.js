@@ -156,12 +156,12 @@ let worldMap = {};
 		    },
 		    series: [
 		        {
-		            type: 'effectScatter',
-		            // type: 'scatter',
+		            // type: 'effectScatter',
+		            type: 'scatter',
 		            coordinateSystem: 'geo',
 		            symbolSize: function (val) {
 		            	var size = val[2] / 1000;
-		                return size < 1 ? 7 :( size > 12 ? 18 : 9);
+		                return size < 1 ? 9 :( size > 12 ? 20 : 12);
 		            },
 		            showEffectOn: 'render',
 		            rippleEffect: {
@@ -197,6 +197,10 @@ let worldMap = {};
 		chart03 = echarts.init(document.getElementById('chartMap'));
 		chart03.setOption(option);
 	};
+
+	mod.removeMap = function(){
+		chart03.dispose();
+	}
 
 })(worldMap); 
 

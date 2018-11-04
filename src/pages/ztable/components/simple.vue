@@ -76,9 +76,8 @@ export default {
 .el-table .success-row {
   background: #f0f9eb;
 }
-.page-number {
-  padding: 15px;
-  text-align: right;
+.el-date-editor.el-input,
+.el-date-editor.el-input__inner {
+  width: 202px;
 }
-
 </style>

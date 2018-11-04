@@ -37,7 +37,8 @@ import {
   Col,
   Carousel,
   CarouselItem,
-  Scrollbar 
+  Scrollbar, 
+  Upload,
 
   // Autocomplete,
   // Dropdown,
@@ -55,7 +56,6 @@ import {
   // Slider,
   // Icon,
   // Row,
-  // Upload,
   // Progress,
   // Badge,
   // Card,
@@ -103,7 +103,9 @@ Vue.use(Col);
 Vue.use(Carousel);
 Vue.use(CarouselItem);
 Vue.use(Loading.directive);
-Vue.use(Scrollbar)
+Vue.use(Scrollbar);
+Vue.use(Upload);
+
 // Vue.use(InputNumber);
 // Vue.use(Alert);
 // Vue.use(Autocomplete);
@@ -122,7 +124,6 @@ Vue.use(Scrollbar)
 // Vue.use(Slider);
 // Vue.use(Icon);
 // Vue.use(Row);
-// Vue.use(Upload);
 // Vue.use(Progress);
 // Vue.use(Badge);
 // Vue.use(Card);

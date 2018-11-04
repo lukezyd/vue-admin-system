@@ -3,11 +3,13 @@ import Vuex from 'vuex'
 
 
 import user from './module/user'
+import form from './module/form'
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
 	modules:{
-		user
+		user,
+		form
 	}
 })
 
