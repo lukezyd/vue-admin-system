@@ -8,16 +8,13 @@
 						<span class="fa fa-user-o"></span>
 						<el-input v-model="loginForm.account" class="account" placeholder="用户名"></el-input>
 					</el-form-item>
-					<div class="login-item">
-						<el-form-item prop="password" class="login-item">
-							<span class="fa fa-key fa-fw"></span>
-							<el-input v-model="loginForm.password" type="password" placeholder="密码"></el-input>
-						</el-form-item>
-					</div>
-					<el-form-item class="login-item remember-box">
-						<el-checkbox v-model="rememberMe">记住密码</el-checkbox>
-						<p class="login-item_error" v-show="loginError">{{errorText}}</p>
+					<el-form-item prop="password" class="login-item" style="margin-bottom: 0">
+						<span class="fa fa-key fa-fw"></span>
+						<el-input v-model="loginForm.password" type="password" placeholder="密码"></el-input>
 					</el-form-item>
+					<div class="login-error">
+						<p class="login-item_error" v-show="loginError">{{errorText}}</p>
+					</div>
 					<el-form-item class="login-item">
 						<el-button type="primary" class="login-btn"  @click.native.prevent="login">登录</el-button>
 					</el-form-item>
@@ -36,7 +33,6 @@
 					account:'admin',
 					password:'123456'
 				},
-				rememberMe:false,
 				errorText:'',
 				loginError:false,
 				rulesList:{
@@ -44,9 +40,6 @@
 					password:[{ required:true, message:'密码不能为空',trigger:'blur'}]
 				}
 			}
-		},
-		created(){
-			
 		},
 		methods: {
 			login:function(){
@@ -61,8 +54,9 @@
 								self.$router.push('/home');
 								self.$store.commit('setToken',response.token);
 							}else{
-								self.errorText = response.data.msg;
+								self.errorText = response.msg;
 								self.loginError = true;
+								console.log(response)
 							}
 						}).catch(function(error){
 							console.log(error);
@@ -103,7 +97,7 @@
 	.login-content{
 		padding: 15px 70px;
 		width: 450px;
-		height: 350px;
+		height: 300px;
 		background: #fdfdfd;
 		position: absolute;
 		left: 50%;
@@ -114,8 +108,8 @@
 	}
 	.login-logo{
 		display: inline-block;
-		height: 60px;
-		margin: 10px auto;
+		height: 54px;
+		margin: 8px auto;
 		font-size: 30px;
     	line-height: 60px;
     	color: #4cadcc;
@@ -127,11 +121,14 @@
 		text-align: center;
 	    font-size: 15px;
 	}
+	.login-error{
+		height: 35px;
+	}
 	.login-item_error{
 		color:red;
-		display: inline-block;
-		font-size: 13px;
-   		margin-left: 20px;
+		font-size: 14px;
+   		text-align: left;
+   		line-height: 40px;
    	}
 	.login-item input{
 		height: 32px;

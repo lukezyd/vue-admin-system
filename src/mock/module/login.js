@@ -4,22 +4,23 @@ const userMap = {
     roles: ['admin'],
     token: 'isAdmin',
     introduction: '管理员账号',
-    account: 'Super Admin'
+    account: 'Admin'
   }
 }
 
 export default {
   loginFn: config => {
     const account = JSON.parse(config.body).account;
+    let userData = {};
 
     if(userMap[account]){
-      userMap[account].code = '200';
+      userData = userMap[account];
+      userData.code = '200';
     }else{
-      userMap[account] = {};
-      userMap[account].code = "404";
-      userMap[account].msg = "用户名或密码错误";
+      userData.code = "404";
+      userData.msg = "用户名或密码错误";
     }
-    return userMap[account];
+    return userData;
   },
 
   logoutFn: config => {

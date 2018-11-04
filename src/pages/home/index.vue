@@ -21,13 +21,13 @@
       </div>
       <div class="rank-table-box">
         <el-table :data="tableData" style="width: 100%">
-          <el-table-column type="index" width="50">
+          <el-table-column type="index">
           </el-table-column>
-          <el-table-column prop="name" label="猫咪种类" width="180">
+          <el-table-column prop="name" label="猫咪种类" >
           </el-table-column>
-          <el-table-column prop="num" label="数量(只)" width="180">
+          <el-table-column prop="num" label="数量(只)" >
           </el-table-column>
-          <el-table-column label="点击率" width="180">
+          <el-table-column label="点击率" >
             <template slot-scope="scope">
               <span><i class="rank-number" :style="scope.row.style">{{scope.row.clickNum}}</i></span>
             </template>

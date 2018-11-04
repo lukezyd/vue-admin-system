@@ -35,7 +35,7 @@
 			            		color:'#e85858'
 			            	}
 			            },
-			            barWidth:40,
+			            // barWidth:40,
 			            color:["#bfc2cd"],
 			            xAxis: {
 			                data: this.catNameList,

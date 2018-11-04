@@ -2,7 +2,7 @@
   <div id="app">
     <a href="https://github.com/eidonlon"><img style="position: absolute;bottom: -19px;border: 0px;right: -45px;z-index:998" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
       <admin-header></admin-header>
-      <admin-nav @navToggle="navToggles"></admin-nav>
+      <admin-nav ></admin-nav>
       <crumbs></crumbs>
         <div class="main-page">
           <el-scrollbar wrapClass="scrollbar-wrapper"  tag="div" style="height:100%;">
@@ -31,22 +31,6 @@ export default {
     },
     created: function(){},
     methods: {
-        changenav: function(){
-            if(this.navLocaltion == "nav-left"){
-                this.navLocaltion = "nav-top";
-                localStorage.setItem(this.$store.state.siteId + "_nav","nav-top");
-            }else{
-                this.navLocaltion = "nav-left";
-                localStorage.setItem(this.$store.state.siteId + "_nav","nav-left");
-            }
-        },
-        navToggles: function(options){
-            if(options){
-                this.navLocaltion = "nav-left";
-            }else{
-                this.navLocaltion = "nav-icon nav-left";
-            }
-        }
     }
 };
 </script>
