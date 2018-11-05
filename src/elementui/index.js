@@ -38,8 +38,7 @@ import {
   Carousel,
   CarouselItem,
   Scrollbar, 
-  Upload,
-
+  // Upload,
   // Autocomplete,
   // Dropdown,
   // DropdownMenu,
@@ -104,8 +103,7 @@ Vue.use(Carousel);
 Vue.use(CarouselItem);
 Vue.use(Loading.directive);
 Vue.use(Scrollbar);
-Vue.use(Upload);
-
+// Vue.use(Upload);
 // Vue.use(InputNumber);
 // Vue.use(Alert);
 // Vue.use(Autocomplete);

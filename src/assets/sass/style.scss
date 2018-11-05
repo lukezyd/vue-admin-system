@@ -144,3 +144,68 @@ li { list-style: none; }
   padding: 15px;
   text-align: right;
 }
+
+
+// vis
+.stroke-part01{
+  height: 180px;border-bottom: 1px solid #ddd;margin-top: -20px;
+  .sp1-box01{
+    width:180px;height:180px;float: left;border-right: 1px solid #ddd;position: relative;color:#333;text-align: center;
+    .allMile{display: inline-block;position: absolute;top: 110px;left: 10px;z-index: 999;}
+    .allTrip{display: inline-block;position: absolute;right: 20px;top: 110px;z-index: 999;}
+    .title{position: absolute;top: 15px;width: 100%;z-index: 999;}
+  }
+  #stroke-chart01{width:165px;height: 165px;}
+}
+.stroke-part02{
+  padding: 10px 10px;background: #f7f7f7;border-bottom: 1px solid #ddd;
+  .sp2-box{width: 33.33%;border-right: 1px solid #ddd;float: left;}
+  .part02-title{
+    padding: 5px 5px;
+    .trip-title-name{color:#52b561}
+  }
+  .sp2-box01{
+    .table01{padding: 0 10px;}
+    .table{text-align: left;}
+    .table tr:nth-child(2n+1){background: #f1f1f1;}
+    td{border-bottom: 0;}
+    .text-style{text-align: right;}
+    .t-num{color:#fff;background: #52b561;padding: 3px 6px;border-radius: 4px;}
+  }
+  .sp2-box02 {
+    padding: 10px 25px;
+    p{line-height: 26px;color:#333;}
+    .sp2-place{margin-top: 20px;}
+    .t-text{color:#333;font-weight: bold;}
+    .t-data{margin-left: 15px;}
+    .sp2-title{margin-bottom: 5px;}
+    .box{position: relative;}
+    .start,.end{
+      padding: 0 0 15px 28px;position: relative;font-size: 13px;line-height: 24px;color: #333;
+    }
+    .start:before{
+      // content: '';display: block;width: 3px;height: auto;position: absolute;left: 11px;top: 25px;bottom: 1px;background: url(../images/bg/dotted.png) repeat-y;
+    }
+  }
+  .sp2-box03 {
+    padding:10px 25px;border-right: 0;
+    p{margin-bottom: 16px;color:#333;}
+    .t-text{font-weight: bold;}
+  }
+}
+.stroke-part03{
+  .m-list{
+    background:#f7f7f7;padding:20px 0;
+    li{width:33.33%;float:left;text-align:center;margin-bottom: 15px;}
+    .num{color:#52b561;font-weight: bold;}
+    .chart02{
+       height: 310px;padding: 20px;text-align: center;
+    }
+  }
+  .stroke-chart02{
+    margin-left: 33.33%;
+  }
+}
+.stroke-part04{
+  position: relative;
+}

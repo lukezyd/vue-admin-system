@@ -1,6 +1,10 @@
 <template>
 	<div class="complex-chart">
 		<div  id="chartMap"></div>
+		<div  id="chart01"></div>
+		<div  id="chart04"></div>
+		<div  id="chart02"></div>
+		<div  id="chart05"></div>
 	</div>
 </template>
 <script>
@@ -19,6 +23,18 @@
 <style scope>
  #chartMap{
  	width:100%;height: 500px;
- 	/*background: #d9dfe2;*/
+ }
+ #chart01{
+ 	width:50%;height: 400px;float: left;overflow: hidden;
+ }
+ #chart02{
+ 	width:50%;height: 400px;float: left;overflow: hidden;
+ }
+ #chart04{
+ 	width:50%;height: 400px;float: left;overflow: hidden;
+ }
+ #chart05{
+ 	width:50%;height: 400px;float: left;overflow: hidden;
  }
 </style>
+

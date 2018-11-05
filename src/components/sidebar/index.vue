@@ -30,7 +30,8 @@ export default {
         },
         {text:'图表',basePath:'/zchart',index:'4',
           children:[
-            {text:'用户分布',basePath:'/zchart/complex',index:'4'}
+            {text:'用户分布',basePath:'/zchart/complex',index:'4'},
+            {text:'用户',basePath:'/zchart/simple',index:'4'}
             // {text:'中级表格',basePath:'/zform/second',index:'4'},
             // {text:'高级表格',basePath:'/zform/senior',index:'4'}
           ]

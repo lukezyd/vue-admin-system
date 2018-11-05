@@ -11,6 +11,11 @@ const chartRouter = {
 					path:'/zchart/complex',
 					name:'complex',
 					component:resolve => require(['@/pages/chart/components/complex'],resolve),
+				},
+				{
+					path:'/zchart/simple',
+					name:'simple',
+					component:resolve => require(['@/pages/chart/components/simple'],resolve),
 				}
 			]
 		}
