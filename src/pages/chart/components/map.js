@@ -51,7 +51,7 @@ let worldMap = {};
 		        boundaryGap: false,
 		        data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月','8月','9月','10月','11月','12月'],
 		        axisLabel:{
-		        	color:'#546d97'
+		        	color:'#fff'
 		        }
 		    },
 		    grid: {
@@ -64,15 +64,15 @@ let worldMap = {};
 		    yAxis: {
 		        type: 'value',
 		        axisLabel:{
-		        	color:'#546d97',
+		        	color:'#fff',
 		        	formatter: '{value}',
 		        	lineStyle:{
-		        		color:'red'
+		        		color:'#fff'
 		        	}
 		        },
 		        splitLine:{
 		        	lineStyle:{
-		        		color:'#1b2f5e'
+		        		color:'#fff'
 		        	}
 		        }
 		    },
@@ -84,7 +84,7 @@ let worldMap = {};
 		        label:{
 		        	show:false,
 		        	formatter: '{c}',
-		        	color:'#76c94b'
+		        	color:'#fff'
 		        },
 		        type: 'line',
 		        areaStyle: {
@@ -250,7 +250,7 @@ let worldMap = {};
 		                {value:136042, name:'gggggggg\n\n'}
 		            ],
 		            label:{
-		            	color:'#546d97',
+		            	color:'#fff',
 		            	formatter: '{b} {d}% '+'| {c}',
 		            },
 		            labelLine:{

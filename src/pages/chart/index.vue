@@ -10,6 +10,6 @@
 </script>
 <style>
 	.zchart{
-		padding:20px;
+		padding: 15px;
 	}
 </style>

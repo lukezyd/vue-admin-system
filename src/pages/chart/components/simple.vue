@@ -6,10 +6,10 @@
 		 </div>
 		 <div class="stroke-details clearfix">
 		 <div class="stroke-part02 clearfix" >
-			 <div class="part02-title clearfix"><span class=""><em class="trip-title-name"></em>报告明细</span><input class="export-trip btn btn-1x btn-white fr" type="button" value="导出"></div>
+			 <div class="part02-title clearfix"><span class=""><em class="trip-title-name"></em>报告明细</span></div>
 			 <div class="sp2-box01 sp2-box">
 			  	<div class="table01">
-			  		<table class="table">
+			  		<!-- <table class="table">
 			  			<tbody>
 			  				<tr><td>健康得分(分)</td><td class="text-style"><span class="t-num">90</span></td>
 			  				<tr><td>体重(kg)</td><td class="text-style"><span class="t-num">21</span></td>
@@ -17,8 +17,21 @@
 			  				<tr><td>血压？()</td><td class="text-style"><span class="t-num">12</span></td>
 			  				<tr><td>心跳？()</td><td class="text-style"><span class="t-num">21</span></td>
 			  				</tr>
-			  			</tbody>
-			  		</table>
+			  			</tbody> -->
+			  			  <el-table
+			  			       :show-header="false"
+						      :data="tableData"
+						      style="width: 100%">
+						      <el-table-column
+						        prop="text"
+						        >
+						      </el-table-column>
+						      <el-table-column
+						        prop="val"
+						       >
+						      </el-table-column>
+						    </el-table>
+			  		<!-- </table> -->
 			  	</div>
 			  </div>
 			  <div class="sp2-box02 sp2-box">
@@ -76,7 +89,13 @@ import  renderVis from './renderVis'
  export default {
  	data() {
  		return {
- 			
+ 			tableData:[
+ 				{text:'健康得分(分)',val:90},
+ 				{text:'体重(kg)',val:90},
+ 				{text:'身长(mm)',val:90},
+ 				{text:'血压？',val:90},
+ 				{text:'心跳？',val:90}
+ 			]
  		}
  	},
  	mounted(){
