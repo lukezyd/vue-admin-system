@@ -80,11 +80,6 @@
 			    var id = document.getElementById("mainChart");
 				this.mainChart = this.echarts.init(id);
 				this.mainChart.setOption(options);
-				this.$nextTick(() => {
-					window.onresize = () => {
-						this.mainChart.resize();
-					}
-				});
 			},
 			resizeChart: function(){
 				this.mainChart.resize();

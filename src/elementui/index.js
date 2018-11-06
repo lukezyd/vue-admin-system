@@ -54,7 +54,7 @@ import {
   // Tree,
   // Slider,
   // Icon,
-  // Row,
+  Row,
   // Progress,
   // Badge,
   // Card,
@@ -121,7 +121,7 @@ Vue.use(Scrollbar);
 // Vue.use(Tree);
 // Vue.use(Slider);
 // Vue.use(Icon);
-// Vue.use(Row);
+Vue.use(Row);
 // Vue.use(Progress);
 // Vue.use(Badge);
 // Vue.use(Card);
