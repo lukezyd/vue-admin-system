@@ -69,15 +69,3 @@ export default {
   }
 };
 </script>
-<style>
-.el-table .warning-row {
-  background: oldlace;
-}
-.el-table .success-row {
-  background: #f0f9eb;
-}
-.el-date-editor.el-input,
-.el-date-editor.el-input__inner {
-  width: 202px;
-}
-</style>

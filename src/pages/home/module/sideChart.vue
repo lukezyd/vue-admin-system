@@ -120,7 +120,7 @@
 			this.sideChart02.dispose();
 			window.removeEventListener('resize',this.resizeChart);
 		}
-	}
+	};
 </script>
 <style>
 	#sideChart01{

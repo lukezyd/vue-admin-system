@@ -84,42 +84,23 @@ export default {
 
 </script>
 <style>
-.ztable-search .el-form-item {
-  width: 20%;
-}
-
-.ztable-search .el-form--inline .el-form-item__content {
-  width: 80%;
-}
-
-.ztable-search .el-date-editor--daterange.el-input,
-.el-date-editor--daterange.el-input__inner,
-.ztable-search .el-date-editor--timerange.el-input,
-.el-date-editor--timerange.el-input__inner {
-  width: 100%;
-}
-
-.ztable-search .btn-box {
-  width: 30% !important;
-}
-
 .search-show-more {
-  border: none;
-  padding: 10px 5px;
+  border: none !important;
+  padding: 10px 5px !important;
 }
 
 .search-show-more i {
-  font-size: 16px;
-  margin-right: 7px;
+  font-size: 16px !important;
+  margin-right: 7px !important;
 }
 
 .search-show-more:hover {
-  background: #fff;
-  color: #81b38a;
+  background: #fff !important;
+  color: #81b38a !important;
 }
 
 .search-show-more:focus {
-  background: #fff;
+  background: #fff !important;
 }
 
 </style>

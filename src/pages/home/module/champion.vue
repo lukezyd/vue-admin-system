@@ -2,7 +2,7 @@
 	<div>
 		<div class="zHome-recommend__info clearfix">
 			<span class="info-logo fl">
-					<img :src="synopsis.logo" alt="">
+				<img :src="synopsis.logo" alt="">
 			</span>
 			<div class="info-main clearfix">
 				<p class="info-main__name"><i class="fa fa-trophy"></i>{{synopsis.name}}</p>
@@ -38,7 +38,7 @@
 				});
 			}
 		}
-	}
+	};
 </script>
 <style scoped>
 .info-logo{

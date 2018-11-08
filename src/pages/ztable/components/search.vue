@@ -61,14 +61,24 @@
 	};
 </script>
 <style>
-.ztable-search .el-form-item{
-	width: 20%;
+.ztable-search .el-form-item {
+  width: 20%;
 }
-.ztable-search .el-form--inline .el-form-item__content{
-	width: 80%;
+
+.ztable-search .el-form--inline .el-form-item__content {
+  width: 80%;
 }
-.ztable-search .el-date-editor--daterange.el-input,.ztable-searc .el-date-editor--daterange.el-input__inner, 
-.ztable-searc .el-date-editor--timerange.el-input,.ztable-searc .el-date-editor--timerange.el-input__inner{
-	width:100%;
+
+.ztable-search .el-date-editor--daterange.el-input,
+.el-date-editor--daterange.el-input__inner,
+.ztable-search .el-date-editor--timerange.el-input,
+.el-date-editor--timerange.el-input__inner {
+  width: 100%;
+  position: relative;
+  top: 3px;
+}
+
+.ztable-search .btn-box {
+  width: 30% !important;
 }
 </style>

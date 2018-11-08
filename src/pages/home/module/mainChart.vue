@@ -74,7 +74,6 @@
 			                name: '点击量',
 			                type: 'bar',
 			                data:this.catNumList
-			                // data: [5, 20, 36, 10, 10, 20,10, 20,12,34,45,12,34,45]
 			            }]
 			        };
 			    var id = document.getElementById("mainChart");

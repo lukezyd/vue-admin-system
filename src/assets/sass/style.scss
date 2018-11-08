@@ -10,14 +10,6 @@
 input { outline: none; }
 li { list-style: none; }
 
-/*布局*/
-.zw-100 { width: 100%; }
-.zw-50 { width: 50%; }
-.zw-25 { width: 25%; }
-.zw-75 { width: 75%; }
-.zw-33 { width: 33.33%; }
-.zw-66 { width: 66.66%; }
-
 /*弹框*/
 .zAlert { position: absolute; left: 0; right: 0; top: 15%; margin: 0 auto; z-index: 9999;
   .zAlert-box { display: inline-block; padding: 15px; color: #333; border-radius: 2px; max-width: 430px; }
@@ -126,10 +118,15 @@ li { list-style: none; }
   .zHome-timeline { width: 65%; margin-bottom: 20px; background: #fff; height: 560px; }
 }
 /* 面包屑导航 */
-.breadcrumb { height: 40px; line-height: 40px; margin: 0 -15px; padding: 0 10px; background: #fff; border-bottom: 1px solid #eaeaea; margin-bottom: 15px; }
-.el-breadcrumb { line-height: 40px; }
+.el-breadcrumb { line-height: 40px !important; }
+.crumbs{position: relative;background-color: #fff;height: 40px; line-height: 40px !important;border-bottom: 1px solid #ddd;padding: 0 20px;}
+.crumbs-box{height: 100%;overflow: hidden;padding: 0 12px;}
+.crumbs-box li{float: left;line-height: 35px;list-style: none;padding: 0 10px;cursor:pointer;}
+.crumbs-text{color:#7bcaf1;}
+
 .ztable { padding: 20px 15px; }
-.ztable-search { .el-form { text-align: left; }
+.ztable-search { 
+  .el-form { text-align: left; }
   .ztable-search { margin-bottom: 25px; text-align: left; }
   .search .el-form-item { margin-bottom: 0; margin-left: 10px; }
   .el-input__inner { height: 34px; line-height: 34px; border-radius: 3px; padding: 0 10px; }
@@ -145,67 +142,26 @@ li { list-style: none; }
   text-align: right;
 }
 
+.ztable-search .el-form-item {
+  width: 20%;
+}
+.ztable-search .el-form--inline .el-form-item__content {
+  width: 80%;
+}
 
+.ztable-search .el-date-editor--daterange.el-input,
+.el-date-editor--daterange.el-input__inner,
+.ztable-search .el-date-editor--timerange.el-input,
+.el-date-editor--timerange.el-input__inner {
+  width: 100% !important;
+  position: relative;
+  top: 3px;
+}
+
+.ztable-search .btn-box {
+  width: 30% !important;
+}
 // vis
 .stroke-part01{
   height: 180px;border-bottom: 1px solid #ddd;margin-top: -20px;
-  .sp1-box01{
-    width:180px;height:180px;float: left;border-right: 1px solid #ddd;position: relative;color:#333;text-align: center;
-    .allMile{display: inline-block;position: absolute;top: 110px;left: 10px;z-index: 999;}
-    .allTrip{display: inline-block;position: absolute;right: 20px;top: 110px;z-index: 999;}
-    .title{position: absolute;top: 15px;width: 100%;z-index: 999;}
-  }
-  #stroke-chart01{width:165px;height: 165px;}
-}
-.stroke-part02{
-  padding: 10px 10px;background: #a3c0c1;border-bottom: 1px solid #ddd;
-  .sp2-box{width: 33.33%;border-right: 1px solid #ddd;float: left;}
-  .part02-title{
-    padding: 5px 5px;
-    .trip-title-name{color:#52b561}
-  }
-  .sp2-box01{
-    .table01{padding: 0 10px;}
-    .table{text-align: left;}
-    .table tr:nth-child(2n+1){background: #f1f1f1;}
-    td{border-bottom: 0;}
-    .text-style{text-align: right;}
-    .t-num{color:#fff;background: #52b561;padding: 3px 6px;border-radius: 4px;}
-  }
-  .sp2-box02 {
-    padding: 10px 25px;
-    p{line-height: 26px;color:#333;}
-    .sp2-place{margin-top: 20px;}
-    .t-text{color:#333;font-weight: bold;}
-    .t-data{margin-left: 15px;}
-    .sp2-title{margin-bottom: 5px;}
-    .box{position: relative;}
-    .start,.end{
-      padding: 0 0 15px 28px;position: relative;font-size: 13px;line-height: 24px;color: #333;
-    }
-    .start:before{
-      // content: '';display: block;width: 3px;height: auto;position: absolute;left: 11px;top: 25px;bottom: 1px;background: url(../images/bg/dotted.png) repeat-y;
-    }
-  }
-  .sp2-box03 {
-    padding:10px 25px;border-right: 0;
-    p{margin-bottom: 16px;color:#333;}
-    .t-text{font-weight: bold;}
-  }
-}
-.stroke-part03{
-  .m-list{
-    background:#f7f7f7;padding:20px 0;
-    li{width:33.33%;float:left;text-align:center;margin-bottom: 15px;}
-    .num{color:#52b561;font-weight: bold;}
-    .chart02{
-       height: 310px;padding: 20px;text-align: center;
-    }
-  }
-  .stroke-chart02{
-    margin-left: 33.33%;
-  }
-}
-.stroke-part04{
-  position: relative;
 }

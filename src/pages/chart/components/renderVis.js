@@ -12,21 +12,19 @@ const renderVis = {
 		    {id: 6, content: 'item 6', start: '2018-11-03',end: '2018-11-04', type: 'background'}
 		  ];
 
-		 // var self = this;
 		 var items = new vis.DataSet(list);
 		 var options = {
 		    start: '2018-06-10',
 		    end: new Date(),
 		    editable: false,
-		    height: '180px',
-		    // locale: moment.locale('zh-cn')
+		    height: '180px'
 		 };
 		 var container = document.getElementById('visualization');
 		 var timeline = new vis.Timeline(container, items, options);
 
 		 // self.visDetails(0,itemList);
 
-	  //   $("#visualization").on("click",".vis-item-overflow",function(){
+	     // $("#visualization").on("click",".vis-item-overflow",function(){
 		 //  	var _index = Number($(this).find(".vis-item-content").text().replace("行程",""));
 		 //  	$(".vis-item.vis-background").css("background","rgba(82, 181, 97,.2)");
 		 //  	$(".vis-item.vis-background").find(".vis-item-overflow").css("background","rgba(82, 181, 97,.2)");

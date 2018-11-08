@@ -224,5 +224,4 @@ export default {
 .table-handle {
   margin-bottom: 10px;
 }
-
 </style>

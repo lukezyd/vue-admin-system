@@ -8,14 +8,14 @@ const chartRouter = {
 			component:resolve => require(['@/pages/chart/index'],resolve),
 			children:[
 				{
-					path:'/zchart/complex',
-					name:'complex',
-					component:resolve => require(['@/pages/chart/components/complex'],resolve),
+					path:'/zchart/mapChart',
+					name:'mapChart',
+					component:resolve => require(['@/pages/chart/components/mapChart'],resolve),
 				},
 				{
-					path:'/zchart/simple',
-					name:'simple',
-					component:resolve => require(['@/pages/chart/components/simple'],resolve),
+					path:'/zchart/catChart',
+					name:'catChart',
+					component:resolve => require(['@/pages/chart/components/catChart'],resolve),
 				}
 			]
 		}

@@ -24,14 +24,14 @@
  	mounted(){
  		console.log(this.$route.fullPath);
  		var path = this.$route.fullPath;
- 		if(path == '/zform/primary'){
+ 		if(path == '/zform/first'){
  			this.active = 0;
  		}
  	},
  	created(){
  		console.log(this.$store.state.form.stepIndex)
  		if(this.active == 0){
- 			this.$router.push('/zform/primary');
+ 			this.$router.push('/zform/first');
  		}
  	},
  	methods:{

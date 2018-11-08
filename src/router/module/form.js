@@ -8,14 +8,14 @@ const formRouter = {
 			component:resolve => require(['@/pages/form/index'],resolve),
 			children:[
 				{
-					path:'/zform/primary',
-					name:'primary',
-					component:resolve => require(['@/pages/form/components/simple'],resolve)
+					path:'/zform/first',
+					name:'first',
+					component:resolve => require(['@/pages/form/components/first'],resolve)
 				},
 				{
 					path:'/zform/second',
 					name:'second',
-					component:resolve => require(['@/pages/form/components/complex'],resolve)
+					component:resolve => require(['@/pages/form/components/second'],resolve)
 				},
 				{
 					path:'/zform/third',
@@ -30,6 +30,6 @@ const formRouter = {
 			]
 		}
 	]
-};
+}; 
 
 export default formRouter;

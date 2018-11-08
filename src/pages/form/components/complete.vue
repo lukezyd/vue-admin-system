@@ -7,7 +7,7 @@
 <script>
 	export default{
 
-	}
+	};
 </script>
 <style>
 	.result-icon i{
