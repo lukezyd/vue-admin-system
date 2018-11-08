@@ -13,3 +13,10 @@ export function tableDetails(){
 		methods:'post'
 	});
 }
+
+export function catType(){
+	return $axios({
+		url:'/catType',
+		methods:'post'
+	});
+}

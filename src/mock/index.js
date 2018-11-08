@@ -15,5 +15,6 @@ Mock.mock('/sumData','post',homeApi.sumData);
 // 表
 Mock.mock('/tableData','post',tableApi.tableData);
 Mock.mock('/tableDetails','post',tableApi.tableDetails);
+Mock.mock('/catType','post',tableApi.catType);
 
 export default Mock

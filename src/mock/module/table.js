@@ -90,6 +90,24 @@ const catData = [{
   date: '2018-10-11',
 }];
 
+const _catType = [
+  {text:"折耳猫",value:1},
+  {text:"英短猫",value:2},
+  {text:"波斯猫",value:3},
+  {text:"布偶猫",value:4},
+  {text:"短毛猫",value:5},
+  {text:"蓝猫",value:6},
+  {text:"挪威猫",value:7},
+  {text:"缅因猫",value:8},
+  {text:"埃及猫",value:9},
+  {text:"美短猫",value:10},
+  {text:"孟买猫",value:11},
+  {text:"暹罗猫",value:12},
+  {text:"伯曼猫",value:13},
+  {text:"狸花猫",value:14},
+  {text:"褴褛猫",value:15}];
+
+  
 export default {
   tableData: config => {
     return {
@@ -97,9 +115,14 @@ export default {
       code:200
     }
   },
-
   tableDetails: config => {
      const catId = JSON.parse(config.body).catId;
      return catData[catId];
+  },
+  catType :config => {
+    return {
+      _catType,
+      code:200
+    }
   }
 }

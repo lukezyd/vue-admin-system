@@ -154,7 +154,9 @@ export default {
         this.tableData = this.copyData.filter(function(item) {
           return (item.name.toLowerCase().indexOf(opt.name) != -1 &&
             (opt.type ? item.value == opt.type : true) &&
-            (opt.date ? (Date.parse(opt.date[0]) <= Date.parse(item.date) && Date.parse(item.date) <= Date.parse(opt.date[1])) : true));
+            (opt.date ? (Date.parse(opt.date[0]) <= Date.parse(item.date) && Date.parse(item.date) <= Date.parse(opt.date[1])) : true) 
+            // (opt.sex ? item.opt.sex == opt.sex : true)
+            );
         });
       }, 800);
     },
@@ -200,7 +202,7 @@ export default {
       });
     },
     toForm: function(){
-        this.$router.push('/zform/primary');
+        this.$router.push('/zform/first');
     }
   }
 };
