@@ -26,7 +26,7 @@
                               <span class="timeline-icon green"></span>
                               <span class="timeline-date">13:00 am</span>
                               <h1 class="green">10月 18日 | 周四</h1>
-                              <p>引进<a href="#">挪威猫</a> 200只。</span></p>
+                              <p>引进<a >挪威猫</a> 200只。</span></p>
                           </div>
                       </div>
                   </div>
@@ -39,7 +39,7 @@
                               <span class="timeline-icon blue"></span>
                               <span class="timeline-date">11:35 am</span>
                               <h1 class="blue">10月 10日 | 周三</h1>
-                              <p>购买<a href="#">猫粮</a> 800KG，新增 <span><a href="#" class="blue">猫舍</a>110间。</span></p>
+                              <p>购买<a >猫粮</a> 800KG，新增 <span><a  class="blue">猫舍</a>110间。</span></p>
                           </div>
                       </div>
                   </div>
@@ -54,7 +54,7 @@
                               <h1 class="purple">10月 12日 | 周五</h1>
                               <p>救助流浪猫60只。</p>
                               <div class="notification">
-                                  <i class=" fa fa-exclamation-sign"></i> 具体信息请 <a href="#">点击查看</a>
+                                  <i class=" fa fa-exclamation-sign"></i> 具体信息请 <a >点击查看</a>
                               </div>
                           </div>
                       </div>
@@ -68,7 +68,7 @@
                               <span class="timeline-icon light-green"></span>
                               <span class="timeline-date">12:49 pm</span>
                               <h1 class="light-green">10月 7日 | 周日</h1>
-                              <p><a href="#">猫咪乐园</a> 正式成立啦。 </p>
+                              <p><a >猫咪乐园</a> 正式成立啦。 </p>
                           </div>
                       </div>
                   </div>
