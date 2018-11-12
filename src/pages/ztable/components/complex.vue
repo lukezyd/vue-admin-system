@@ -54,14 +54,8 @@
         </el-form-item>
         <el-form-item label="品种" :label-width="formLabelWidth">
           <el-select v-model="editForm.type" placeholder="请选择品种">
-            <el-option label="折耳猫" value="1"></el-option>
-            <el-option label="英短猫" value="2"></el-option>
-            <el-option label="波斯猫" value="3"></el-option>
-            <el-option label="布偶猫" value="4"></el-option>
-            <el-option label="短毛猫" value="5"></el-option>
-            <el-option label="挪威猫" value="6"></el-option>
-            <el-option label="缅因猫" value="7"></el-option>
-            <el-option label="埃及猫" value="8"></el-option>
+             <el-option v-for="ctype in catType" :label="ctype.text" :value="ctype.value" :key="ctype.text"></el-option>
+          </el-select>
           </el-select>
         </el-form-item>
         <el-form-item label="领养日期" :label-width="formLabelWidth">
@@ -110,6 +104,11 @@ export default {
   },
   components: {
     tableSearch
+  },
+  computed:{
+     catType: function(){
+      return this.$store.state.table.catType;
+    }
   },
   mounted() {
     this.loadData();

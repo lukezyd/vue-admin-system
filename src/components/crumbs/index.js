@@ -3,7 +3,11 @@ const crumbsMap = {
 	'ztable':'表格',
 	'primary':'初级',
 	'second':'中级',
-	'senior':'高级'
+	'senior':'高级',
+	'zform':'表单',
+	'first':'用户量分布',
+	'zchart':'图表 / 用户量分布',
+	'notFound':'404'
 };
 console.log(crumbsMap)
 const changeCrumbs ={

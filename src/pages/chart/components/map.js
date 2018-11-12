@@ -203,7 +203,7 @@ let worldMap = {};
 		        axisLabel:{
 		        	color:'#546d97'
 		        },
-		        data: ["马来西亚", "斯里兰卡", "印尼", "巴基斯坦", "特多"]
+		        data: ["地区1", "地区2", "地区3", "地区4", "地区5"]
 		    },
 		    series: [
 		        {
@@ -266,7 +266,7 @@ let worldMap = {};
 	};
 	mod.mapChart = function(){
 		var data = [
-		    {name: '特多', value: 3050},
+		    {name: '特多', value: 31050},
 		    {name: '巴基斯坦', value: 1547},
 		    {name: '斯里兰卡', value: 200},
 		    {name: '马来西亚', value: 150},

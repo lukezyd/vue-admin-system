@@ -119,7 +119,7 @@ export default {
      const catId = JSON.parse(config.body).catId;
      return catData[catId];
   },
-  catType :config => {
+  catType: config => {
     return {
       _catType,
       code:200

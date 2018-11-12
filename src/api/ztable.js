@@ -10,13 +10,13 @@ export function tableData(){
 export function tableDetails(){
 	return $axios({
 		url:'/tableDetails',
-		methods:'post'
+		method:'post'
 	});
 }
 
 export function catType(){
 	return $axios({
 		url:'/catType',
-		methods:'post'
+		method:'post'
 	});
 }
