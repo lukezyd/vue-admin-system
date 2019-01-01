@@ -1,11 +1,11 @@
 <template>
 	<div class="complex-chart">
-		<h3>全球用户分布</h3>
-		<div  id="chartMap"></div>
-		<div  id="chart02"></div>
-		<div  id="chart05"></div>
-		<div  id="chart01"></div>
-		<div  id="chart04"></div>
+		<!--<h3>全球用户分布</h3>-->
+		<!--<div  id="chartMap"></div>-->
+		<!--<div  id="chart02"></div>-->
+		<!--<div  id="chart05"></div>-->
+		<!--<div  id="chart01"></div>-->
+		<!--<div  id="chart04"></div>-->
 	</div>
 </template>
 <script>
