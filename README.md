@@ -2,12 +2,6 @@
 
 > test 
 
-> 
-this is also a test push.
-
-this is a test rebase.
-test too.
-test 3.
 ## Build Setup
 
 ``` bash
